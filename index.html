@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AIESEC — Projekte & Praktika weltweit</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<title>Volunteer with AIESEC Bremen</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --blue: #0037E3;
@@ -13,557 +13,335 @@
     --red: #F95440;
     --purple: #7552CC;
     --yellow: #FFC345;
-    --dark: #1a1a2e;
-    --ocean: #b8d4e8;
-    --land: #e8eedc;
-    --land-hover: #d4e0c4;
+    --bg: #FFF5F2;
     --white: #ffffff;
-    --gray: #f4f5f7;
-    --text: #1a1a2e;
-    --muted: #6b7280;
+    --gray: #f0ebe8;
+    --text: #1a1020;
+    --muted: #7a6a65;
+    --border: rgba(0,0,0,0.08);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--dark);
-    color: var(--white);
+    font-family: 'Raleway', sans-serif;
+    background: var(--bg);
+    color: var(--text);
     min-height: 100vh;
     overflow-x: hidden;
   }
 
-  /* HEADER */
   header {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 40px;
-    background: rgba(26,26,46,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 40px;
+    background: rgba(255,245,242,0.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
   }
-
-  .logo {
-    display: flex; align-items: center; gap: 10px;
-  }
-  .logo-mark {
-    width: 36px; height: 36px;
-    background: var(--blue);
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'DM Serif Display', serif;
-    font-size: 18px;
-    font-style: italic;
-    color: #fff;
-  }
-  .logo-text {
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-  .logo-sub {
-    font-size: 11px;
-    color: rgba(255,255,255,0.45);
-    letter-spacing: 0.06em;
-    margin-top: 1px;
-  }
+  .brand-main { font-size: 17px; font-weight: 900; font-family: 'Lato', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); line-height: 1; }
+  .brand-main span { color: var(--blue); }
+  .brand-sub { font-size: 10px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 3px; }
 
   nav { display: flex; gap: 8px; }
-  nav a {
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 500;
-    padding: 7px 14px;
-    border-radius: 20px;
-    letter-spacing: 0.04em;
-    transition: all 0.2s;
-  }
-  .nav-link { color: rgba(255,255,255,0.6); }
-  .nav-link:hover { color: #fff; background: rgba(255,255,255,0.08); }
-  .nav-cta {
-    background: var(--blue);
-    color: #fff;
-  }
-  .nav-cta:hover { background: #0029b0; }
+  nav a { text-decoration: none; font-size: 12px; font-weight: 500; padding: 7px 16px; border-radius: 20px; letter-spacing: 0.04em; transition: all 0.2s; color: var(--muted); }
+  nav a:hover { color: var(--text); background: rgba(0,0,0,0.05); }
+  nav a.cta { background: var(--blue); color: #fff; }
+  nav a.cta:hover { background: #0029b0; }
 
-  /* HERO */
-  .hero {
-    padding: 130px 40px 40px;
-    text-align: center;
-    position: relative;
-  }
-  .hero-tag {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--teal);
-    border: 1px solid rgba(0,193,174,0.3);
-    padding: 5px 14px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-  }
-  h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(32px, 5vw, 56px);
-    font-weight: 400;
-    line-height: 1.1;
-    margin-bottom: 14px;
-    color: #fff;
-  }
-  h1 em {
-    font-style: italic;
-    color: var(--teal);
-  }
-  .hero-sub {
-    font-size: 15px;
-    color: rgba(255,255,255,0.5);
-    max-width: 480px;
-    margin: 0 auto 30px;
-    line-height: 1.6;
-  }
+  .hero { padding: 108px 40px 24px; text-align: center; }
+  .hero-tag { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); border: 1.5px solid rgba(249,84,64,0.3); background: rgba(249,84,64,0.06); padding: 5px 16px; border-radius: 20px; margin-bottom: 20px; }
+  h1 { font-family: 'Lato', sans-serif; font-size: clamp(34px, 5.5vw, 64px); font-weight: 900; line-height: 1.08; margin-bottom: 14px; color: var(--text); }
+  h1 em { font-style: italic; color: var(--blue); font-weight: 300; }
+  .hero-sub { font-size: 15px; color: var(--muted); max-width: 440px; margin: 0 auto 24px; line-height: 1.65; }
 
-  /* LEGEND */
-  .legend {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-  }
-  .legend-item {
-    display: flex; align-items: center; gap: 7px;
-    font-size: 12px;
-    color: rgba(255,255,255,0.6);
-  }
-  .legend-dot {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
+  .legend { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 500; color: var(--muted); background: rgba(0,0,0,0.04); padding: 5px 12px; border-radius: 20px; }
+  .legend-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
 
-  /* MAP CONTAINER */
-  .map-container {
-    position: relative;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px 60px;
-  }
+  .map-container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 8px; position: relative; }
+  #worldmap { width: 100%; height: auto; display: block; filter: drop-shadow(0 12px 40px rgba(0,0,0,0.1)); }
 
-  #worldmap {
-    width: 100%;
-    height: auto;
-    display: block;
-    filter: drop-shadow(0 20px 60px rgba(0,0,0,0.5));
-  }
+  .land-blue   { fill: #0037E3; stroke: #fff; stroke-width: 0.7; }
+  .land-red    { fill: #F95440; stroke: #fff; stroke-width: 0.7; }
+  .land-teal   { fill: #00C1AE; stroke: #fff; stroke-width: 0.7; }
+  .land-purple { fill: #7552CC; stroke: #fff; stroke-width: 0.7; }
+  .land-orange { fill: #F48024; stroke: #fff; stroke-width: 0.7; }
+  .land-yellow { fill: #FFC345; stroke: #fff; stroke-width: 0.7; }
+  .land-dark   { fill: #92565E; stroke: #fff; stroke-width: 0.7; }
 
-  .country {
-    fill: #2a3a52;
-    stroke: #1a1a2e;
-    stroke-width: 0.6;
-    transition: fill 0.2s;
-  }
+  .city-group { cursor: pointer; }
+  .city-pulse { animation: pulse 2.8s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 0; } }
+  .city-core { transition: filter 0.2s; }
+  .city-group:hover .city-core { filter: brightness(1.2) drop-shadow(0 0 5px rgba(255,255,255,0.8)); }
+  .city-label { font-family: 'Raleway', sans-serif; font-size: 8.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; pointer-events: none; fill: #fff; }
 
-  /* CITY DOTS */
-  .city-group {
-    cursor: pointer;
-  }
-  .city-pulse {
-    transform-origin: center;
-    animation: pulse 2.5s ease-in-out infinite;
-  }
-  .city-pulse-2 {
-    transform-origin: center;
-    animation: pulse 2.5s ease-in-out infinite 0.8s;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 0.3; r: 14; }
-    50% { opacity: 0; r: 20; }
-  }
-  .city-core {
-    transition: r 0.2s, filter 0.2s;
-  }
-  .city-group:hover .city-core {
-    filter: brightness(1.3);
-  }
-  .city-label {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    pointer-events: none;
-    fill: rgba(255,255,255,0.8);
-  }
-
-  /* TOOLTIP / PANEL */
   .panel {
-    position: fixed;
-    top: 50%;
-    right: -400px;
-    transform: translateY(-50%);
-    width: 340px;
-    background: #fff;
-    color: var(--text);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.4);
-    transition: right 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    z-index: 200;
+    position: fixed; top: 50%; right: -430px; transform: translateY(-50%);
+    width: 355px; background: #fff; color: var(--text);
+    border-radius: 18px; overflow: hidden;
+    box-shadow: 0 24px 70px rgba(0,0,0,0.18);
+    transition: right 0.42s cubic-bezier(0.34, 1.56, 0.64, 1); z-index: 200;
   }
-  .panel.open {
-    right: 30px;
-  }
-  .panel-header {
-    padding: 22px 22px 18px;
-    position: relative;
-  }
-  .panel-close {
-    position: absolute;
-    top: 16px; right: 16px;
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    background: #f0f0f0;
-    border: none;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 14px;
-    color: #888;
-    transition: background 0.15s;
-  }
-  .panel-close:hover { background: #e0e0e0; }
-  .panel-flag {
-    font-size: 32px;
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-  .panel-country {
-    font-family: 'DM Serif Display', serif;
-    font-size: 26px;
-    font-weight: 400;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-  .panel-region {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-  }
-  .panel-stats {
-    display: flex; gap: 12px;
-    padding: 12px 22px;
-    background: var(--gray);
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-  }
-  .stat {
-    text-align: center; flex: 1;
-  }
-  .stat-num {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--blue);
-  }
-  .stat-label {
-    font-size: 10px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-top: 2px;
-  }
-  .panel-projects {
-    padding: 16px 22px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-height: 420px;
-    overflow-y: auto;
-  }
-  .project-card {
-    display: block;
-    text-decoration: none;
-    padding: 13px 15px;
-    border-radius: 10px;
-    border: 1.5px solid #eee;
-    transition: all 0.18s;
-    position: relative;
-    overflow: hidden;
-  }
-  .project-card::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 3px;
-  }
-  .project-card.vol::before { background: var(--red); }
-  .project-card.int::before { background: var(--blue); }
-  .project-card.teach::before { background: var(--purple); }
-  .project-card:hover {
-    border-color: var(--blue);
-    background: #f8f9ff;
-    transform: translateX(3px);
-  }
-  .project-card-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 4px;
-  }
-  .project-type-badge {
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 20px;
-  }
-  .badge-vol { background: #fff0ee; color: var(--red); }
-  .badge-int { background: #eef2ff; color: var(--blue); }
-  .badge-teach { background: #f3eeff; color: var(--purple); }
-  .project-duration {
-    font-size: 10px;
-    color: var(--muted);
-  }
-  .project-name {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text);
-    line-height: 1.4;
-  }
-  .project-arrow {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 16px;
-    color: #ccc;
-    transition: color 0.15s, right 0.15s;
-  }
-  .project-card:hover .project-arrow {
-    color: var(--blue);
-    right: 10px;
-  }
-
-  /* MOBILE */
-  @media (max-width: 600px) {
-    header { padding: 14px 20px; }
-    .hero { padding: 100px 20px 30px; }
-    h1 { font-size: 28px; }
-    .panel {
-      top: auto;
-      right: 0;
-      bottom: -100%;
-      left: 0;
-      width: 100%;
-      border-radius: 20px 20px 0 0;
-      transform: none;
-      transition: bottom 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .panel.open {
-      right: 0;
-      bottom: 0;
-    }
-    nav { display: none; }
-  }
-
-  /* SCROLLBAR */
+  .panel.open { right: 24px; }
+  .panel-header { padding: 22px 22px 16px; position: relative; }
+  .panel-close { position: absolute; top: 14px; right: 14px; width: 30px; height: 30px; border-radius: 50%; background: #f2f2f2; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #888; transition: background 0.15s; }
+  .panel-close:hover { background: #e5e5e5; }
+  .panel-flag { font-size: 32px; margin-bottom: 8px; }
+  .panel-country { font-family: 'Lato', sans-serif; font-size: 26px; font-weight: 900; margin-bottom: 3px; }
+  .panel-region { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+  .panel-stats { display: flex; padding: 10px 22px; background: var(--bg); border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+  .stat { text-align: center; flex: 1; }
+  .stat-num { font-size: 20px; font-weight: 600; color: var(--red); }
+  .stat-label { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+  .panel-projects { padding: 14px 22px; display: flex; flex-direction: column; gap: 9px; max-height: 400px; overflow-y: auto; }
+  .project-card { display: block; text-decoration: none; padding: 13px 15px; border-radius: 12px; border: 1.5px solid #f0ebe8; transition: all 0.18s; position: relative; overflow: hidden; background: #fff; }
+  .project-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--red); border-radius: 4px 0 0 4px; }
+  .project-card:hover { border-color: var(--red); background: #fff8f7; transform: translateX(3px); }
+  .project-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px; }
+  .project-type-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; padding: 3px 9px; border-radius: 20px; background: rgba(249,84,64,0.1); color: var(--red); }
+  .project-duration { font-size: 10px; color: var(--muted); }
+  .project-name { font-size: 13px; font-weight: 500; color: var(--text); line-height: 1.35; padding-right: 22px; }
+  .project-arrow { position: absolute; right: 13px; top: 50%; transform: translateY(-50%); font-size: 16px; color: #ddd; transition: all 0.15s; }
+  .project-card:hover .project-arrow { color: var(--red); right: 11px; }
   .panel-projects::-webkit-scrollbar { width: 4px; }
-  .panel-projects::-webkit-scrollbar-track { background: transparent; }
-  .panel-projects::-webkit-scrollbar-thumb { background: #ddd; border-radius: 4px; }
+  .panel-projects::-webkit-scrollbar-thumb { background: #e0e0e0; border-radius: 4px; }
 
-  /* BG STARS */
-  .bg-stars {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
-  }
-  .star {
-    position: absolute;
-    width: 1px; height: 1px;
-    background: rgba(255,255,255,0.4);
-    border-radius: 50%;
+  .support-section { padding: 56px 40px 72px; max-width: 1100px; margin: 0 auto; }
+  .support-header { text-align: center; margin-bottom: 44px; }
+  .support-tag { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); border: 1.5px solid rgba(0,55,227,0.2); background: rgba(0,55,227,0.05); padding: 5px 16px; border-radius: 20px; margin-bottom: 16px; }
+  .support-header h2 { font-family: 'Lato', sans-serif; font-size: clamp(26px, 3.5vw, 46px); font-weight: 900; color: var(--text); line-height: 1.12; }
+  .support-header h2 em { font-style: italic; color: var(--blue); font-weight: 300; }
+  .support-intro { font-size: 14px; color: var(--muted); max-width: 540px; margin: 14px auto 0; line-height: 1.7; }
+  .support-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(235px, 1fr)); gap: 16px; }
+  .support-card { background: #fff; border: 1.5px solid var(--border); border-radius: 16px; padding: 28px 24px; transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; }
+  .support-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; border-radius: 16px 16px 0 0; }
+  .support-card:nth-child(1)::before { background: var(--blue); }
+  .support-card:nth-child(2)::before { background: var(--teal); }
+  .support-card:nth-child(3)::before { background: var(--red); }
+  .support-card:nth-child(4)::before { background: var(--purple); }
+  .support-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.09); }
+  .support-icon { font-size: 28px; margin-bottom: 14px; }
+  .support-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+  .support-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+  footer { text-align: center; padding: 24px 20px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); }
+  footer a { color: var(--blue); text-decoration: none; }
+
+  /* FAQ */
+  .faq-section { padding: 0 40px 72px; max-width: 1100px; margin: 0 auto; }
+  .faq-header { text-align: center; margin-bottom: 40px; }
+  .faq-tag { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); border: 1.5px solid rgba(249,84,64,0.25); background: rgba(249,84,64,0.06); padding: 5px 16px; border-radius: 20px; margin-bottom: 14px; }
+  .faq-header h2 { font-family: 'Lato', sans-serif; font-size: clamp(24px, 3vw, 42px); font-weight: 900; color: var(--text); line-height: 1.12; }
+  .faq-header h2 em { font-style: italic; color: var(--red); font-weight: 300; }
+  .faq-list { display: flex; flex-direction: column; gap: 10px; max-width: 780px; margin: 0 auto; }
+  .faq-item { background: #fff; border: 1.5px solid var(--border); border-radius: 14px; overflow: hidden; transition: box-shadow 0.2s; }
+  .faq-item:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.07); }
+  .faq-q { display: flex; align-items: center; justify-content: space-between; padding: 18px 22px; cursor: pointer; gap: 16px; }
+  .faq-q-text { font-size: 15px; font-weight: 600; color: var(--text); font-family: 'Lato', sans-serif; line-height: 1.35; }
+  .faq-icon { width: 26px; height: 26px; border-radius: 50%; background: var(--bg); display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--red); flex-shrink: 0; transition: transform 0.25s, background 0.2s; font-weight: 300; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); background: rgba(249,84,64,0.1); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.25s; padding: 0 22px; }
+  .faq-item.open .faq-a { max-height: 300px; padding: 0 22px 18px; }
+  .faq-a p { font-size: 14px; color: var(--muted); line-height: 1.7; border-top: 1px solid #f0ebe8; padding-top: 14px; }
+  .faq-a a { color: var(--blue); text-decoration: none; font-weight: 500; }
+  .faq-a a:hover { text-decoration: underline; }
+  .faq-num { display: inline-block; width: 22px; height: 22px; border-radius: 50%; background: var(--red); color: #fff; font-size: 11px; font-weight: 700; text-align: center; line-height: 22px; margin-right: 10px; flex-shrink: 0; }
+
+  @media (max-width: 640px) {
+    header { padding: 14px 18px; }
+    .hero { padding: 90px 18px 16px; }
+    nav a:not(.cta) { display: none; }
+    .panel { top: auto; right: 0; bottom: -100%; left: 0; width: 100%; border-radius: 20px 20px 0 0; transform: none; transition: bottom 0.42s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .panel.open { right: 0; bottom: 0; }
+    .support-section { padding: 40px 18px 56px; }
+    .faq-section { padding: 0 18px 56px; }
   }
 </style>
 </head>
 <body>
 
-<div class="bg-stars" id="stars"></div>
-
 <header>
-  <div class="logo">
-    <div class="logo-mark">A</div>
-    <div>
-      <div class="logo-text">AIESEC</div>
-      <div class="logo-sub">Deutschland</div>
-    </div>
+  <div>
+    <div class="brand-main">AIESEC <span>Bremen</span></div>
+    <div class="brand-sub">Volunteer worldwide</div>
   </div>
   <nav>
-    <a href="https://aiesec.de/freiwilligenprojekte" class="nav-link" target="_blank">Freiwillig</a>
-    <a href="https://aiesec.de/praktika" class="nav-link" target="_blank">Praktika</a>
-    <a href="https://aiesec.de/lehrpraktika" class="nav-link" target="_blank">Lehrpraktika</a>
-    <a href="https://aiesec.de/anmeldung" class="nav-cta" target="_blank">Jetzt bewerben</a>
+    <a href="https://aiesec.de/alle" target="_blank">Alle Projekte</a>
+    <a href="https://aiesec.de/anmeldung" class="cta" target="_blank">Jetzt bewerben</a>
   </nav>
 </header>
 
 <main>
   <div class="hero">
-    <div class="hero-tag">🌍 Über 15 Länder weltweit</div>
-    <h1>Entdecke dein<br><em>Auslandsabenteuer</em></h1>
-    <p class="hero-sub">Klick auf einen Standort und entdecke Projekte und Praktika in über 10 Ländern.</p>
+    <div class="hero-tag">🌍 10+ Länder · Echte Wirkung</div>
+    <h1>Volunteer<br><em>with AIESEC</em></h1>
+    <p class="hero-sub">Klick auf einen Standort und entdecke Freiwilligenprojekte rund um die Welt.</p>
     <div class="legend">
       <div class="legend-item"><div class="legend-dot" style="background:#F95440"></div>Freiwilligenprojekt</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#0037E3"></div>Praktikum</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#7552CC"></div>Lehrpraktikum</div>
     </div>
   </div>
 
   <div class="map-container">
-    <svg id="worldmap" viewBox="0 0 960 500" xmlns="http://www.w3.org/2000/svg">
-      <!-- Ocean -->
-      <rect width="960" height="500" fill="#111e30" rx="12"/>
+    <svg id="worldmap" viewBox="0 0 1100 580" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1100" height="580" fill="#c8e4f4" rx="12"/>
 
-      <!-- NORTH AMERICA -->
-      <path class="country" d="M62,55 L85,50 L115,46 L148,48 L172,57 L188,72 L202,95 L208,118 L215,145 L210,168 L198,182 L186,195 L172,205 L160,215 L148,228 L138,240 L126,248 L112,252 L98,248 L86,236 L78,222 L72,208 L63,195 L54,180 L49,162 L50,138 L55,115 L58,90 Z"/>
-      <!-- GREENLAND -->
-      <path class="country" d="M198,20 L228,16 L258,18 L274,30 L270,52 L252,64 L226,68 L205,58 L193,42 Z"/>
-      <!-- CENTRAL AMERICA -->
-      <path class="country" d="M148,228 L158,238 L162,252 L158,262 L150,270 L140,272 L134,264 L131,250 L135,238 Z"/>
-      <!-- SOUTH AMERICA -->
-      <path class="country" d="M178,258 L200,245 L228,240 L254,246 L270,262 L282,284 L290,312 L292,342 L286,370 L272,396 L252,412 L228,420 L205,412 L184,396 L172,372 L165,345 L163,315 L166,285 L170,270 Z"/>
-      <!-- CARIBBEAN -->
-      <path class="country" d="M190,210 L202,208 L210,215 L208,224 L198,226 L188,220 Z" style="fill:#1e2e48"/>
+      <!-- NORTH AMERICA - blue -->
+      <path class="land-blue" d="M72,65 L98,58 L132,53 L170,56 L198,66 L216,83 L232,110 L240,137 L248,168 L242,196 L228,212 L212,227 L196,239 L180,250 L165,264 L152,278 L139,288 L124,294 L108,290 L94,276 L86,260 L78,244 L68,228 L58,210 L53,188 L54,160 L60,132 L65,105 L69,82 Z"/>
+      <!-- GREENLAND - teal -->
+      <path class="land-teal" d="M228,24 L264,18 L298,21 L316,35 L312,62 L290,76 L260,80 L234,68 L220,50 Z"/>
+      <!-- CENTRAL AMERICA - orange -->
+      <path class="land-orange" d="M170,278 L182,290 L186,308 L182,320 L172,328 L160,330 L153,320 L151,305 L156,290 Z"/>
+      <!-- SOUTH AMERICA - red -->
+      <path class="land-red" d="M204,302 L230,288 L264,282 L296,290 L318,310 L334,338 L342,372 L344,410 L336,444 L318,474 L292,494 L260,502 L228,493 L202,474 L186,448 L178,416 L175,380 L178,344 L184,320 Z"/>
 
-      <!-- EUROPE -->
-      <path class="country" d="M398,50 L428,44 L456,42 L478,48 L492,60 L498,75 L493,92 L480,104 L462,112 L445,117 L428,120 L413,123 L400,125 L388,118 L380,106 L376,92 L379,76 Z"/>
-      <!-- UK/IRELAND -->
-      <path class="country" d="M370,58 L380,54 L386,62 L383,74 L373,78 L365,70 Z"/>
-      <!-- SCANDINAVIA -->
-      <path class="country" d="M420,24 L438,20 L455,24 L463,38 L458,55 L442,62 L424,60 L413,48 L413,32 Z"/>
-      <!-- IBERIAN (Portugal+Spain) -->
-      <path class="country" d="M372,108 L394,104 L404,112 L402,128 L390,134 L374,132 L366,124 L368,114 Z"/>
-      <!-- ITALY -->
-      <path class="country" d="M432,110 L446,115 L452,126 L456,138 L450,148 L440,154 L430,144 L426,130 L427,118 Z"/>
-      <!-- BALKANS/ROMANIA area -->
-      <path class="country" d="M470,76 L492,72 L510,76 L518,88 L512,102 L496,110 L478,108 L466,96 Z"/>
-      <!-- TURKEY -->
-      <path class="country" d="M496,108 L528,102 L558,105 L572,116 L568,130 L550,140 L520,142 L498,134 L490,122 Z"/>
+      <!-- EUROPE - purple -->
+      <path class="land-purple" d="M456,58 L492,50 L524,47 L550,55 L568,70 L575,88 L570,108 L554,122 L532,132 L510,137 L490,141 L471,145 L455,140 L443,128 L438,112 L441,92 Z"/>
+      <path class="land-purple" d="M424,66 L437,61 L444,72 L441,86 L428,91 L418,82 Z"/>
+      <!-- SCANDINAVIA - blue -->
+      <path class="land-blue" d="M480,27 L502,22 L524,27 L534,44 L528,64 L508,72 L486,70 L472,56 L472,38 Z"/>
+      <path class="land-purple" d="M425,125 L450,120 L462,130 L460,148 L446,155 L427,153 L417,143 L419,132 Z"/>
+      <path class="land-purple" d="M496,128 L514,134 L522,148 L526,164 L518,176 L504,183 L491,171 L486,154 L488,138 Z"/>
+      <path class="land-purple" d="M540,88 L568,82 L592,88 L602,104 L594,120 L572,130 L547,128 L534,114 Z"/>
+      <!-- TURKEY - orange -->
+      <path class="land-orange" d="M572,126 L612,118 L648,122 L665,135 L660,153 L639,164 L603,166 L576,156 L565,142 Z"/>
 
-      <!-- AFRICA -->
-      <path class="country" d="M386,150 L408,142 L436,140 L462,145 L478,160 L486,182 L492,210 L495,242 L492,272 L482,298 L466,318 L444,330 L418,334 L394,328 L374,314 L360,292 L353,266 L350,238 L354,208 L361,182 L370,164 Z"/>
-      <!-- TUNISIA highlight -->
-      <path class="country" d="M422,140 L438,136 L450,142 L452,158 L440,166 L424,163 L416,154 Z" fill="#243550"/>
+      <!-- AFRICA - yellow -->
+      <path class="land-yellow" d="M440,172 L468,162 L500,160 L530,166 L549,183 L559,208 L565,240 L567,278 L562,314 L548,344 L528,368 L502,382 L472,387 L442,380 L416,362 L400,336 L392,304 L390,270 L395,238 L404,210 L415,190 Z"/>
+      <!-- TUNISIA - orange -->
+      <path class="land-orange" d="M484,162 L505,156 L520,163 L523,182 L508,192 L488,189 L477,178 Z"/>
+      <!-- EGYPT - orange -->
+      <path class="land-orange" d="M535,160 L565,152 L586,157 L592,176 L582,196 L557,202 L532,194 L522,178 Z"/>
+      <!-- MIDDLE EAST - orange -->
+      <path class="land-orange" d="M562,150 L602,140 L638,143 L655,157 L649,176 L626,188 L591,190 L567,178 Z"/>
 
-      <!-- MIDDLE EAST -->
-      <path class="country" d="M484,118 L518,110 L548,112 L562,124 L558,140 L540,150 L512,153 L490,144 L481,132 Z"/>
+      <!-- RUSSIA - dark rose -->
+      <path class="land-dark" d="M524,30 L622,20 L730,16 L838,18 L930,26 L975,40 L980,58 L970,80 L936,96 L888,100 L830,97 L762,94 L692,92 L622,94 L558,98 L530,88 L518,70 L519,48 Z"/>
 
-      <!-- CENTRAL ASIA / RUSSIA -->
-      <path class="country" d="M456,26 L540,18 L630,14 L720,16 L800,22 L840,34 L848,50 L840,68 L810,80 L768,82 L710,79 L645,78 L572,80 L508,84 L470,86 L453,74 L450,56 Z"/>
+      <!-- CENTRAL/SOUTH ASIA - teal -->
+      <path class="land-teal" d="M630,100 L694,92 L756,90 L806,96 L835,112 L844,133 L838,156 L818,173 L788,183 L754,186 L720,182 L688,172 L659,156 L641,136 L632,116 Z"/>
+      <!-- INDIA - teal -->
+      <path class="land-teal" d="M688,172 L720,164 L750,168 L768,183 L774,208 L766,236 L746,256 L720,266 L694,260 L672,244 L662,220 L664,196 Z"/>
+      <ellipse cx="736" cy="278" rx="9" ry="12" class="land-teal"/>
 
-      <!-- SOUTH ASIA -->
-      <path class="country" d="M548,88 L600,82 L650,80 L695,84 L720,96 L730,114 L726,135 L710,150 L685,160 L655,163 L622,160 L593,152 L568,140 L550,124 L544,105 Z"/>
-      <!-- INDIA -->
-      <path class="country" d="M593,152 L620,147 L645,150 L660,162 L665,182 L658,205 L643,222 L622,232 L600,228 L582,214 L574,194 L576,172 Z"/>
-      <!-- SRI LANKA -->
-      <ellipse cx="636" cy="246" rx="8" ry="10" class="country" fill="#2a3a52"/>
+      <!-- EAST ASIA - blue -->
+      <path class="land-blue" d="M790,90 L866,80 L932,78 L980,88 L1004,106 L1006,130 L994,154 L968,170 L934,178 L896,180 L860,174 L824,160 L800,142 L786,120 L785,102 Z"/>
+      <path class="land-blue" d="M972,98 L990,91 L1006,96 L1010,113 L998,128 L980,132 L966,120 Z"/>
+      <path class="land-blue" d="M830,180 L868,174 L900,180 L916,200 L912,226 L892,240 L862,244 L836,232 L820,212 L820,194 Z"/>
 
-      <!-- EAST/SE ASIA -->
-      <path class="country" d="M690,78 L750,70 L802,68 L840,75 L862,92 L864,115 L854,136 L830,150 L800,158 L768,160 L735,155 L705,143 L685,128 L680,108 L682,90 Z"/>
-      <!-- JAPAN -->
-      <path class="country" d="M835,86 L850,80 L864,85 L868,98 L858,112 L843,115 L832,104 Z"/>
-      <!-- SE ASIA / INDONESIA -->
-      <path class="country" d="M722,158 L752,153 L780,158 L795,174 L792,196 L774,208 L748,212 L724,203 L712,186 L713,168 Z"/>
-      <!-- AUSTRALIA -->
-      <path class="country" d="M756,320 L800,308 L840,310 L866,327 L872,352 L865,378 L848,395 L818,404 L785,400 L758,385 L742,364 L738,340 Z"/>
-
-      <!-- EGYPT visible -->
-      <path class="country" d="M468,150 L492,143 L510,147 L516,163 L508,178 L486,182 L464,175 L458,160 Z" fill="#243550"/>
+      <!-- AUSTRALIA - red -->
+      <path class="land-red" d="M868,372 L921,357 L970,360 L1000,380 L1008,412 L1000,444 L978,464 L944,474 L906,470 L874,453 L852,424 L846,392 Z"/>
 
       <!-- ====== CITY DOTS ====== -->
-
       <!-- ITALY -->
       <g class="city-group" onclick="openPanel('italien')">
-        <circle cx="440" cy="128" r="18" fill="#F95440" opacity="0.12" class="city-pulse"/>
-        <circle cx="440" cy="128" r="7" fill="#F95440" stroke="#fff" stroke-width="2" class="city-core"/>
-        <text x="440" y="114" text-anchor="middle" class="city-label">ITALIEN</text>
+        <circle cx="504" cy="150" r="24" fill="#fff" opacity="0.22" class="city-pulse"/>
+        <circle cx="504" cy="150" r="9" fill="#fff" stroke="#1a1020" stroke-width="2" class="city-core"/>
+        <text x="504" y="133" text-anchor="middle" class="city-label">ITALIEN</text>
       </g>
-
       <!-- GREECE -->
       <g class="city-group" onclick="openPanel('griechenland')">
-        <circle cx="476" cy="120" r="18" fill="#0037E3" opacity="0.15" class="city-pulse"/>
-        <circle cx="476" cy="120" r="7" fill="#0037E3" stroke="#fff" stroke-width="2" class="city-core"/>
-        <text x="476" y="106" text-anchor="middle" class="city-label">GRIECHENLAND</text>
+        <circle cx="550" cy="140" r="24" fill="#fff" opacity="0.22" class="city-pulse"/>
+        <circle cx="550" cy="140" r="9" fill="#fff" stroke="#1a1020" stroke-width="2" class="city-core"/>
+        <text x="550" y="123" text-anchor="middle" class="city-label">GRIECHENLAND</text>
       </g>
-
       <!-- SPAIN -->
       <g class="city-group" onclick="openPanel('spanien')">
-        <circle cx="383" cy="118" r="18" fill="#7552CC" opacity="0.15" class="city-pulse"/>
-        <circle cx="383" cy="118" r="7" fill="#7552CC" stroke="#fff" stroke-width="2" class="city-core"/>
-        <text x="383" y="104" text-anchor="middle" class="city-label">SPANIEN</text>
+        <circle cx="438" cy="132" r="24" fill="#fff" opacity="0.22" class="city-pulse"/>
+        <circle cx="438" cy="132" r="9" fill="#fff" stroke="#1a1020" stroke-width="2" class="city-core"/>
+        <text x="438" y="115" text-anchor="middle" class="city-label">SPANIEN</text>
       </g>
-
       <!-- PORTUGAL -->
       <g class="city-group" onclick="openPanel('portugal')">
-        <circle cx="368" cy="128" r="18" fill="#7552CC" opacity="0.15" class="city-pulse"/>
-        <circle cx="368" cy="128" r="6" fill="#7552CC" stroke="#fff" stroke-width="2" class="city-core"/>
-        <text x="350" y="142" text-anchor="middle" class="city-label">PORTUGAL</text>
+        <circle cx="420" cy="144" r="20" fill="#fff" opacity="0.22" class="city-pulse"/>
+        <circle cx="420" cy="144" r="7" fill="#fff" stroke="#1a1020" stroke-width="2" class="city-core"/>
+        <text x="398" y="162" text-anchor="middle" class="city-label">PORTUGAL</text>
       </g>
-
       <!-- ROMANIA -->
       <g class="city-group" onclick="openPanel('rumanien')">
-        <circle cx="486" cy="88" r="18" fill="#F95440" opacity="0.12" class="city-pulse"/>
-        <circle cx="486" cy="88" r="7" fill="#F95440" stroke="#fff" stroke-width="2" class="city-core"/>
-        <text x="486" y="74" text-anchor="middle" class="city-label">RUMÄNIEN</text>
+        <circle cx="562" cy="102" r="24" fill="#fff" opacity="0.22" class="city-pulse"/>
+        <circle cx="562" cy="102" r="9" fill="#fff" stroke="#1a1020" stroke-width="2" class="city-core"/>
+        <text x="562" y="85" text-anchor="middle" class="city-label">RUMÄNIEN</text>
       </g>
-
       <!-- TUNISIA -->
       <g class="city-group" onclick="openPanel('tunesien')">
-        <circle cx="430" cy="150" r="16" fill="#FFC345" opacity="0.18" class="city-pulse"/>
-        <circle cx="430" cy="150" r="6" fill="#FFC345" stroke="#fff" stroke-width="2" class="city-core"/>
-        <text x="430" y="167" text-anchor="middle" class="city-label">TUNESIEN</text>
+        <circle cx="497" cy="174" r="20" fill="#fff" opacity="0.22" class="city-pulse"/>
+        <circle cx="497" cy="174" r="7" fill="#fff" stroke="#1a1020" stroke-width="2" class="city-core"/>
+        <text x="497" y="195" text-anchor="middle" class="city-label">TUNESIEN</text>
       </g>
-
       <!-- EGYPT -->
       <g class="city-group" onclick="openPanel('egypt')">
-        <circle cx="488" cy="162" r="16" fill="#F48024" opacity="0.18" class="city-pulse"/>
-        <circle cx="488" cy="162" r="6" fill="#F48024" stroke="#fff" stroke-width="2" class="city-core"/>
-        <text x="506" y="165" text-anchor="start" class="city-label">ÄGYPTEN</text>
+        <circle cx="556" cy="176" r="20" fill="#fff" opacity="0.22" class="city-pulse"/>
+        <circle cx="556" cy="176" r="7" fill="#fff" stroke="#1a1020" stroke-width="2" class="city-core"/>
+        <text x="578" y="180" text-anchor="start" class="city-label">ÄGYPTEN</text>
       </g>
-
       <!-- INDIA -->
       <g class="city-group" onclick="openPanel('indien')">
-        <circle cx="620" cy="195" r="18" fill="#F48024" opacity="0.18" class="city-pulse"/>
-        <circle cx="620" cy="195" r="7" fill="#F48024" stroke="#fff" stroke-width="2" class="city-core"/>
-        <text x="620" y="181" text-anchor="middle" class="city-label">INDIEN</text>
+        <circle cx="716" cy="220" r="24" fill="#fff" opacity="0.22" class="city-pulse"/>
+        <circle cx="716" cy="220" r="9" fill="#fff" stroke="#1a1020" stroke-width="2" class="city-core"/>
+        <text x="716" y="203" text-anchor="middle" class="city-label">INDIEN</text>
       </g>
-
       <!-- SRI LANKA -->
       <g class="city-group" onclick="openPanel('srilanka')">
-        <circle cx="636" cy="246" r="16" fill="#00C1AE" opacity="0.18" class="city-pulse"/>
-        <circle cx="636" cy="246" r="6" fill="#00C1AE" stroke="#fff" stroke-width="2" class="city-core"/>
-        <text x="654" y="250" text-anchor="start" class="city-label">SRI LANKA</text>
+        <circle cx="736" cy="278" r="20" fill="#fff" opacity="0.22" class="city-pulse"/>
+        <circle cx="736" cy="278" r="7" fill="#fff" stroke="#1a1020" stroke-width="2" class="city-core"/>
+        <text x="758" y="282" text-anchor="start" class="city-label">SRI LANKA</text>
       </g>
-
       <!-- BRAZIL -->
       <g class="city-group" onclick="openPanel('brasilien')">
-        <circle cx="240" cy="320" r="18" fill="#00C1AE" opacity="0.15" class="city-pulse"/>
-        <circle cx="240" cy="320" r="7" fill="#00C1AE" stroke="#fff" stroke-width="2" class="city-core"/>
-        <text x="240" y="306" text-anchor="middle" class="city-label">BRASILIEN</text>
+        <circle cx="272" cy="376" r="24" fill="#fff" opacity="0.22" class="city-pulse"/>
+        <circle cx="272" cy="376" r="9" fill="#fff" stroke="#1a1020" stroke-width="2" class="city-core"/>
+        <text x="272" y="359" text-anchor="middle" class="city-label">BRASILIEN</text>
       </g>
-
     </svg>
+  </div>
+
+  <!-- SUPPORT -->
+  <div class="support-section">
+    <div class="support-header">
+      <div class="support-tag">💛 Our Support</div>
+      <h2>Du bist nie<br><em>allein unterwegs</em></h2>
+      <p class="support-intro">Our AIESEC members in both your home and host countries will make sure to be there every step of the way — before leaving and while you are abroad.</p>
+    </div>
+    <div class="support-grid">
+      <div class="support-card">
+        <div class="support-icon">✈️</div>
+        <div class="support-title">Logistics Support</div>
+        <div class="support-desc">We ensure you get the right visa, arrival pick-up information before you travel and departure instructions when you're going back.</div>
+      </div>
+      <div class="support-card">
+        <div class="support-icon">🌏</div>
+        <div class="support-title">Learning Experience</div>
+        <div class="support-desc">We set clear expectations, provide cultural preparation and facilitate learning spaces before, during and after your experience.</div>
+      </div>
+      <div class="support-card">
+        <div class="support-icon">🏠</div>
+        <div class="support-title">Safe Living Conditions</div>
+        <div class="support-desc">Life and health insurance is mandatory for taking part in an AIESEC program. You will get information about accommodation and basic living costs.</div>
+      </div>
+      <div class="support-card">
+        <div class="support-icon">📋</div>
+        <div class="support-title">Clear Job Description</div>
+        <div class="support-desc">We accompany you to the workplace on the first day, ensure your job description and goals are clear, and your working hours and duration is as expected.</div>
+      </div>
+    </div>
   </div>
 </main>
 
-<!-- SIDE PANEL -->
+  <!-- FAQ SECTION -->
+  <div class="faq-section">
+    <div class="faq-header">
+      <div class="faq-tag">❓ FAQ</div>
+      <h2>Häufig gestellte<br><em>Fragen</em></h2>
+    </div>
+    <div class="faq-list" id="faq-list"></div>
+  </div>
+
+<footer>
+  <p>AIESEC Bremen · <a href="https://aiesec.de/alle" target="_blank">aiesec.de</a> · Freiwilligenprojekte weltweit</p>
+</footer>
+
 <div class="panel" id="panel">
   <div class="panel-header" id="panel-header">
     <button class="panel-close" onclick="closePanel()">✕</button>
@@ -576,142 +354,99 @@
 </div>
 
 <script>
-// Star background
-const starsEl = document.getElementById('stars');
-for (let i = 0; i < 120; i++) {
-  const s = document.createElement('div');
-  s.className = 'star';
-  s.style.left = Math.random() * 100 + '%';
-  s.style.top = Math.random() * 100 + '%';
-  s.style.opacity = (Math.random() * 0.5 + 0.1).toFixed(2);
-  s.style.width = s.style.height = (Math.random() * 2 + 0.5) + 'px';
-  starsEl.appendChild(s);
-}
-
 const cities = {
-  italien: {
-    flag: '🇮🇹', country: 'Italien', region: 'Südeuropa',
-    headerColor: '#F95440',
-    projects: [
-      { name: 'Equify – Liberamente', type: 'vol', duration: '6 Wochen', url: 'https://aiesec.de/project/equify-liberamente-italy' },
-      { name: 'Global Classroom (Torino)', type: 'vol', duration: '6 Wochen', url: 'https://aiesec.de/project/global-classroom-torino-italy' },
-      { name: 'Global Classroom', type: 'vol', duration: '6 Wochen', url: 'https://aiesec.de/project/global-classroom-italy' },
-      { name: 'Green Leaders', type: 'vol', duration: '6 Wochen', url: 'https://aiesec.de/project/green-leaders-italy' },
-      { name: 'Equify', type: 'vol', duration: '6 Wochen', url: 'https://aiesec.de/project/equify-italy' },
-      { name: 'Youth 4 Impact', type: 'vol', duration: '6 Wochen', url: 'https://aiesec.de/project/youth-4-impact-italy' },
-      { name: 'Fingerprint', type: 'vol', duration: '6 Wochen', url: 'https://aiesec.de/project/fingerprint-italy' },
-    ]
-  },
-  griechenland: {
-    flag: '🇬🇷', country: 'Griechenland', region: 'Südeuropa',
-    headerColor: '#0037E3',
-    projects: [
-      { name: 'Rooted', type: 'vol', duration: '6 Wochen', url: 'https://aiesec.de/project/rooted-greece' },
-      { name: 'Junior Marketing & Communication Manager', type: 'int', duration: '12 Monate', url: 'https://aiesec.de/project/junior-marketing-greece' },
-      { name: 'Frontend Developer', type: 'int', duration: '12 Monate', url: 'https://aiesec.de/project/frontend-developer-greece' },
-    ]
-  },
-  spanien: {
-    flag: '🇪🇸', country: 'Spanien', region: 'Westeuropa',
-    headerColor: '#7552CC',
-    projects: [
-      { name: 'Teacher / Assistant Teacher', type: 'teach', duration: '6 Monate', url: 'https://aiesec.de/project/teacher-assistant-teacher-spain' },
-    ]
-  },
-  portugal: {
-    flag: '🇵🇹', country: 'Portugal', region: 'Westeuropa',
-    headerColor: '#7552CC',
-    projects: [
-      { name: 'Alle Projekte in Portugal', type: 'vol', duration: 'Variiert', url: 'https://aiesec.de/location/portugal' },
-    ]
-  },
-  rumanien: {
-    flag: '🇷🇴', country: 'Rumänien', region: 'Osteuropa',
-    headerColor: '#F95440',
-    projects: [
-      { name: 'Alle Projekte in Rumänien', type: 'vol', duration: 'Variiert', url: 'https://aiesec.de/location/rumaenien' },
-    ]
-  },
-  tunesien: {
-    flag: '🇹🇳', country: 'Tunesien', region: 'Nordafrika',
-    headerColor: '#FFC345',
-    projects: [
-      { name: 'German Teacher', type: 'teach', duration: '6 Monate', url: 'https://aiesec.de/project/german-teacher-tunisia' },
-    ]
-  },
-  egypt: {
-    flag: '🇪🇬', country: 'Ägypten', region: 'Nordafrika',
-    headerColor: '#F48024',
-    projects: [
-      { name: 'Alle Projekte in Ägypten', type: 'vol', duration: 'Variiert', url: 'https://aiesec.de/location/egypt' },
-    ]
-  },
-  indien: {
-    flag: '🇮🇳', country: 'Indien', region: 'Südasien',
-    headerColor: '#F48024',
-    projects: [
-      { name: 'Sports Teacher', type: 'teach', duration: '6 Monate', url: 'https://aiesec.de/project/sports-teacher-india' },
-      { name: 'Dance and Music Teacher', type: 'teach', duration: '6 Monate', url: 'https://aiesec.de/project/dance-and-music-teacher-india' },
-    ]
-  },
-  srilanka: {
-    flag: '🇱🇰', country: 'Sri Lanka', region: 'Südasien',
-    headerColor: '#00C1AE',
-    projects: [
-      { name: 'Aquatica', type: 'vol', duration: '6 Wochen', url: 'https://aiesec.de/project/aquatica-sri-lanka' },
-    ]
-  },
-  brasilien: {
-    flag: '🇧🇷', country: 'Brasilien', region: 'Südamerika',
-    headerColor: '#00C1AE',
-    projects: [
-      { name: 'Alle Projekte in Brasilien', type: 'vol', duration: 'Variiert', url: 'https://aiesec.de/location/brasilien' },
-    ]
-  },
+  italien: { flag:'🇮🇹', country:'Italien', region:'Südeuropa', projects:[
+    {name:'Equify – Liberamente',duration:'6 Wochen',url:'https://aiesec.de/project/equify-liberamente-italy'},
+    {name:'Global Classroom (Torino)',duration:'6 Wochen',url:'https://aiesec.de/project/global-classroom-torino-italy'},
+    {name:'Global Classroom',duration:'6 Wochen',url:'https://aiesec.de/project/global-classroom-italy'},
+    {name:'Green Leaders',duration:'6 Wochen',url:'https://aiesec.de/project/green-leaders-italy'},
+    {name:'Equify',duration:'6 Wochen',url:'https://aiesec.de/project/equify-italy'},
+    {name:'Youth 4 Impact',duration:'6 Wochen',url:'https://aiesec.de/project/youth-4-impact-italy'},
+    {name:'Fingerprint',duration:'6 Wochen',url:'https://aiesec.de/project/fingerprint-italy'},
+  ]},
+  griechenland: { flag:'🇬🇷', country:'Griechenland', region:'Südeuropa', projects:[
+    {name:'Rooted',duration:'6 Wochen',url:'https://aiesec.de/project/rooted-greece'},
+  ]},
+  spanien: { flag:'🇪🇸', country:'Spanien', region:'Westeuropa', projects:[
+    {name:'Alle Projekte in Spanien',duration:'Variiert',url:'https://aiesec.de/location/spanien'},
+  ]},
+  portugal: { flag:'🇵🇹', country:'Portugal', region:'Westeuropa', projects:[
+    {name:'Alle Projekte in Portugal',duration:'Variiert',url:'https://aiesec.de/location/portugal'},
+  ]},
+  rumanien: { flag:'🇷🇴', country:'Rumänien', region:'Osteuropa', projects:[
+    {name:'Alle Projekte in Rumänien',duration:'Variiert',url:'https://aiesec.de/location/rumaenien'},
+  ]},
+  tunesien: { flag:'🇹🇳', country:'Tunesien', region:'Nordafrika', projects:[
+    {name:'Alle Projekte in Tunesien',duration:'Variiert',url:'https://aiesec.de/location/tunesien'},
+  ]},
+  egypt: { flag:'🇪🇬', country:'Ägypten', region:'Nordafrika', projects:[
+    {name:'Alle Projekte in Ägypten',duration:'Variiert',url:'https://aiesec.de/location/egypt'},
+  ]},
+  indien: { flag:'🇮🇳', country:'Indien', region:'Südasien', projects:[
+    {name:'Alle Projekte in Indien',duration:'Variiert',url:'https://aiesec.de/location/indien'},
+  ]},
+  srilanka: { flag:'🇱🇰', country:'Sri Lanka', region:'Südasien', projects:[
+    {name:'Aquatica',duration:'6 Wochen',url:'https://aiesec.de/project/aquatica-sri-lanka'},
+  ]},
+  brasilien: { flag:'🇧🇷', country:'Brasilien', region:'Südamerika', projects:[
+    {name:'Alle Projekte in Brasilien',duration:'Variiert',url:'https://aiesec.de/location/brasilien'},
+  ]},
 };
 
-const typeLabel = { vol: 'Freiwillig', int: 'Praktikum', teach: 'Lehrpraktikum' };
-const typeClass = { vol: 'badge-vol', int: 'badge-int', teach: 'badge-teach' };
-const cardClass = { vol: 'vol', int: 'int', teach: 'teach' };
-
 function openPanel(key) {
-  const d = cities[key];
-  if (!d) return;
-
+  const d = cities[key]; if (!d) return;
   document.getElementById('panel-flag').textContent = d.flag;
   document.getElementById('panel-country').textContent = d.country;
   document.getElementById('panel-region').textContent = d.region;
-  document.getElementById('panel-header').style.borderBottom = `3px solid ${d.headerColor}`;
-
-  const vol = d.projects.filter(p => p.type === 'vol').length;
-  const int = d.projects.filter(p => p.type === 'int').length;
-  const teach = d.projects.filter(p => p.type === 'teach').length;
-  document.getElementById('panel-stats').innerHTML = `
-    <div class="stat"><div class="stat-num">${d.projects.length}</div><div class="stat-label">Projekte</div></div>
-    ${vol ? `<div class="stat"><div class="stat-num" style="color:#F95440">${vol}</div><div class="stat-label">Freiwillig</div></div>` : ''}
-    ${int ? `<div class="stat"><div class="stat-num" style="color:#0037E3">${int}</div><div class="stat-label">Praktikum</div></div>` : ''}
-    ${teach ? `<div class="stat"><div class="stat-num" style="color:#7552CC">${teach}</div><div class="stat-label">Lehrpraktikum</div></div>` : ''}
-  `;
-
-  document.getElementById('panel-projects').innerHTML = d.projects.map(p => `
-    <a href="${p.url}" target="_blank" class="project-card ${cardClass[p.type]}">
-      <div class="project-card-top">
-        <span class="project-type-badge ${typeClass[p.type]}">${typeLabel[p.type]}</span>
-        <span class="project-duration">${p.duration}</span>
-      </div>
+  document.getElementById('panel-header').style.borderBottom = '3px solid #F95440';
+  document.getElementById('panel-stats').innerHTML = `<div class="stat"><div class="stat-num">${d.projects.length}</div><div class="stat-label">Freiwilligenprojekte</div></div>`;
+  document.getElementById('panel-projects').innerHTML = d.projects.map(p=>`
+    <a href="${p.url}" target="_blank" class="project-card">
+      <div class="project-card-top"><span class="project-type-badge">Freiwillig</span><span class="project-duration">${p.duration}</span></div>
       <div class="project-name">${p.name}</div>
       <span class="project-arrow">→</span>
-    </a>
-  `).join('');
-
+    </a>`).join('');
   document.getElementById('panel').classList.add('open');
 }
+function closePanel() { document.getElementById('panel').classList.remove('open'); }
+document.addEventListener('keydown', e => { if(e.key==='Escape') closePanel(); });
 
-function closePanel() {
-  document.getElementById('panel').classList.remove('open');
+// FAQ
+const faqs = [
+  {
+    q: "Wer kann mitmachen? Gibt es Altersgrenzen?",
+    a: "Wir nehmen Bewerberinnen und Bewerber im Alter von <strong>18 bis 30 Jahren</strong> auf. Ein Studium ist für Freiwilligenprojekte nicht zwingend erforderlich."
+  },
+  {
+    q: "Was ist in der Programmgebühr enthalten?",
+    a: "<strong>Unterkunft und Verpflegung</strong> sind im Programmbeitrag enthalten — du musst dir also vor Ort keine Gedanken um Wohnen oder Essen machen. Den <strong>Flug buchst und bezahlst du selbst</strong>. Es gibt jedoch Möglichkeiten, die Reisekosten fördern zu lassen — zum Beispiel über den DAAD (siehe nächste Frage)."
+  },
+  {
+    q: "Kann ich meine Reisekosten über den DAAD erstatten lassen?",
+    a: "Wenn du mindestens im <strong>2. Fachsemester</strong> eines Bachelor-Studiengangs oder in einem Master-Studiengang immatrikuliert bist, kannst du beim DAAD einen <strong>Fahrtkostenzuschuss</strong> für dein AIESEC-Projekt außerhalb Europas beantragen (z.B. Indien, Sri Lanka, Brasilien). Der Antrag läuft direkt über AIESEC — dein persönlicher Ansprechpartner hilft dir dabei! Der Zuschuss variiert je nach Zielland. Weitere Infos: <a href='https://www2.daad.de/ausland/studieren/stipendium/de/70-stipendien-finden-und-bewerben/?detail=57085135' target='_blank'>daad.de →</a>"
+  }
+];
+
+const faqList = document.getElementById('faq-list');
+faqList.innerHTML = faqs.map((f, i) => `
+  <div class="faq-item" id="faq-${i}">
+    <div class="faq-q" onclick="toggleFaq(${i})">
+      <div style="display:flex;align-items:center;gap:0">
+        <span class="faq-num">${i+1}</span>
+        <span class="faq-q-text">${f.q}</span>
+      </div>
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-a"><p>${f.a}</p></div>
+  </div>
+`).join('');
+
+function toggleFaq(i) {
+  const item = document.getElementById('faq-' + i);
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
 }
-
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closePanel(); });
 </script>
 </body>
 </html>

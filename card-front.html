@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIESEC Bremen — Card Front</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #d0d0d0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  /* Standard postcard: 148mm x 105mm — rendered at 4px/mm = 592x420px */
+  .card {
+    width: 592px;
+    height: 420px;
+    background: #FFF5F2;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* TOP BAR */
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 18px 8px;
+    background: #FFF5F2;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    flex-shrink: 0;
+  }
+
+  .brand {
+    display: flex;
+    flex-direction: column;
+  }
+  .brand-name {
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #1a1020;
+    line-height: 1;
+  }
+  .brand-name span { color: #0037E3; }
+  .brand-sub {
+    font-size: 7px;
+    color: #9a8a85;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* NFC badge */
+  .nfc-badge {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(0,55,227,0.06);
+    border: 1px solid rgba(0,55,227,0.18);
+    border-radius: 20px;
+    padding: 5px 11px 5px 8px;
+  }
+  .nfc-icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+  .nfc-text {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #0037E3;
+    line-height: 1.3;
+  }
+
+  /* TITLE */
+  .title-area {
+    text-align: center;
+    padding: 8px 18px 4px;
+    flex-shrink: 0;
+  }
+  .title-area h1 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: #1a1020;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  .title-area h1 em {
+    font-weight: 300;
+    font-style: italic;
+    color: #0037E3;
+  }
+
+  /* MAP */
+  .map-wrap {
+    flex: 1;
+    padding: 0 10px 8px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #map {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .land-blue   { fill: #0037E3; stroke: #fff; stroke-width: 0.5; }
+  .land-red    { fill: #F95440; stroke: #fff; stroke-width: 0.5; }
+  .land-teal   { fill: #00C1AE; stroke: #fff; stroke-width: 0.5; }
+  .land-purple { fill: #7552CC; stroke: #fff; stroke-width: 0.5; }
+  .land-orange { fill: #F48024; stroke: #fff; stroke-width: 0.5; }
+  .land-yellow { fill: #FFC345; stroke: #fff; stroke-width: 0.5; }
+  .land-dark   { fill: #92565E; stroke: #fff; stroke-width: 0.5; }
+
+  .dot-ring {
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 0.3; }
+    50%      { opacity: 0; }
+  }
+
+  .city-lbl {
+    font-family: 'Raleway', sans-serif;
+    font-size: 5.5px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    fill: #fff;
+    pointer-events: none;
+  }
+
+  /* BOTTOM TAG */
+  .bottom-tag {
+    position: absolute;
+    bottom: 10px;
+    right: 14px;
+    font-size: 7px;
+    font-weight: 500;
+    color: #bbb;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="brand">
+      <div class="brand-name">AIESEC <span>Bremen</span></div>
+      <div class="brand-sub">Volunteer worldwide</div>
+    </div>
+
+    <!-- NFC Icon + text -->
+    <div class="nfc-badge">
+      <!-- NFC SVG icon -->
+      <svg class="nfc-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4" stroke="#0037E3" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8" stroke="#0037E3" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="12" cy="12" r="2" fill="#0037E3"/>
+        <path d="M18 4L20 6M20 4L18 6" stroke="#F95440" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M21 9C21.5523 9 22 8.55228 22 8C22 7.44772 21.5523 7 21 7" stroke="#0037E3" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div class="nfc-text">Hold your phone<br>to discover more</div>
+    </div>
+  </div>
+
+  <!-- TITLE -->
+  <div class="title-area">
+    <h1>Volunteer <em>with AIESEC</em></h1>
+  </div>
+
+  <!-- MAP -->
+  <div class="map-wrap">
+    <svg id="map" viewBox="0 0 1100 430" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+      <rect width="1100" height="430" fill="#c8e4f4"/>
+
+      <!-- NORTH AMERICA -->
+      <path class="land-blue" d="M72,48 L98,42 L132,38 L170,41 L198,50 L216,65 L232,88 L240,112 L248,138 L242,162 L228,176 L212,189 L196,200 L180,210 L165,222 L152,234 L139,243 L124,248 L108,244 L94,231 L86,217 L78,203 L68,188 L58,170 L53,152 L54,128 L60,104 L65,82 L69,62 Z"/>
+      <path class="land-teal" d="M228,12 L264,7 L298,10 L316,22 L312,44 L290,56 L260,60 L234,50 L220,34 Z"/>
+      <path class="land-orange" d="M170,234 L182,244 L186,260 L182,270 L172,277 L160,279 L153,270 L151,256 L156,244 Z"/>
+      <path class="land-red" d="M204,258 L230,245 L264,240 L296,247 L318,265 L334,290 L342,320 L344,354 L336,384 L318,408 L292,424 L260,430 L228,421 L202,402 L186,376 L178,344 L175,310 L178,278 L184,264 Z"/>
+
+      <!-- EUROPE -->
+      <path class="land-purple" d="M456,44 L492,37 L524,34 L550,41 L568,54 L575,70 L570,88 L554,100 L532,109 L510,113 L490,117 L471,120 L455,116 L443,104 L438,89 L441,72 Z"/>
+      <path class="land-purple" d="M424,50 L437,46 L444,56 L441,68 L428,72 L418,64 Z"/>
+      <path class="land-blue" d="M480,16 L502,11 L524,16 L534,30 L528,48 L508,55 L486,53 L472,41 L472,24 Z"/>
+      <path class="land-purple" d="M425,100 L450,95 L462,104 L460,120 L446,127 L427,125 L417,115 L419,105 Z"/>
+      <path class="land-purple" d="M496,104 L514,109 L522,122 L526,136 L518,147 L504,153 L491,142 L486,126 L488,111 Z"/>
+      <path class="land-purple" d="M540,70 L568,64 L592,70 L602,84 L594,98 L572,107 L547,105 L534,92 Z"/>
+      <path class="land-orange" d="M572,104 L612,96 L648,100 L665,112 L660,128 L639,138 L603,140 L576,130 L565,117 Z"/>
+
+      <!-- AFRICA -->
+      <path class="land-yellow" d="M440,148 L468,139 L500,137 L530,143 L549,158 L559,181 L565,210 L567,244 L562,276 L548,302 L528,324 L502,336 L472,341 L442,334 L416,316 L400,292 L392,262 L390,232 L395,204 L404,178 L415,162 Z"/>
+      <path class="land-orange" d="M484,139 L505,133 L520,140 L523,157 L508,167 L488,164 L477,153 Z"/>
+      <path class="land-orange" d="M535,137 L565,129 L586,134 L592,151 L582,169 L557,175 L532,167 L522,152 Z"/>
+      <path class="land-orange" d="M562,127 L602,117 L638,120 L655,132 L649,149 L626,160 L591,162 L567,151 Z"/>
+
+      <!-- RUSSIA -->
+      <path class="land-dark" d="M524,14 L622,5 L730,1 L838,3 L930,10 L975,22 L980,38 L970,58 L936,72 L888,76 L830,73 L762,70 L692,68 L622,70 L558,74 L530,64 L518,47 L519,28 Z"/>
+
+      <!-- CENTRAL/SOUTH ASIA -->
+      <path class="land-teal" d="M630,76 L694,68 L756,66 L806,72 L835,87 L844,107 L838,128 L818,143 L788,152 L754,155 L720,151 L688,141 L659,126 L641,107 L632,88 Z"/>
+      <path class="land-teal" d="M688,141 L720,134 L750,138 L768,152 L774,175 L766,200 L746,218 L720,227 L694,221 L672,206 L662,183 L664,161 Z"/>
+      <ellipse cx="736" cy="234" rx="8" ry="10" class="land-teal"/>
+
+      <!-- EAST ASIA -->
+      <path class="land-blue" d="M790,66 L866,56 L932,54 L980,64 L1004,81 L1006,104 L994,126 L968,141 L934,149 L896,151 L860,145 L824,131 L800,114 L786,94 L785,77 Z"/>
+      <path class="land-blue" d="M972,74 L990,67 L1006,72 L1010,87 L998,101 L980,105 L966,94 Z"/>
+      <path class="land-blue" d="M830,150 L868,144 L900,150 L916,168 L912,192 L892,204 L862,208 L836,197 L820,178 L820,162 Z"/>
+
+      <!-- AUSTRALIA -->
+      <path class="land-red" d="M868,290 L921,278 L970,280 L1000,298 L1008,328 L1000,358 L978,376 L944,385 L906,381 L874,365 L852,337 L846,308 Z"/>
+
+      <!-- ====== DOTS ====== -->
+
+      <!-- ITALY -->
+      <circle cx="504" cy="117" r="12" fill="#F95440" opacity="0.22" class="dot-ring"/>
+      <circle cx="504" cy="117" r="6" fill="#F95440" stroke="#fff" stroke-width="1.8"/>
+      <text x="504" y="107" text-anchor="middle" class="city-lbl">ITALIEN</text>
+
+      <!-- GREECE -->
+      <circle cx="550" cy="108" r="12" fill="#F95440" opacity="0.22" class="dot-ring"/>
+      <circle cx="550" cy="108" r="6" fill="#F95440" stroke="#fff" stroke-width="1.8"/>
+      <text x="550" y="98" text-anchor="middle" class="city-lbl">GRIECHENLAND</text>
+
+      <!-- SPAIN -->
+      <circle cx="438" cy="104" r="12" fill="#F95440" opacity="0.22" class="dot-ring"/>
+      <circle cx="438" cy="104" r="6" fill="#F95440" stroke="#fff" stroke-width="1.8"/>
+      <text x="438" y="94" text-anchor="middle" class="city-lbl">SPANIEN</text>
+
+      <!-- PORTUGAL -->
+      <circle cx="420" cy="114" r="10" fill="#F95440" opacity="0.22" class="dot-ring"/>
+      <circle cx="420" cy="114" r="5" fill="#F95440" stroke="#fff" stroke-width="1.5"/>
+      <text x="400" y="128" text-anchor="middle" class="city-lbl">PORTUGAL</text>
+
+      <!-- ROMANIA -->
+      <circle cx="562" cy="78" r="12" fill="#F95440" opacity="0.22" class="dot-ring"/>
+      <circle cx="562" cy="78" r="6" fill="#F95440" stroke="#fff" stroke-width="1.8"/>
+      <text x="562" y="68" text-anchor="middle" class="city-lbl">RUMÄNIEN</text>
+
+      <!-- TUNISIA -->
+      <circle cx="497" cy="150" r="10" fill="#F95440" opacity="0.22" class="dot-ring"/>
+      <circle cx="497" cy="150" r="5" fill="#F95440" stroke="#fff" stroke-width="1.5"/>
+      <text x="497" y="164" text-anchor="middle" class="city-lbl">TUNESIEN</text>
+
+      <!-- EGYPT -->
+      <circle cx="556" cy="152" r="10" fill="#F95440" opacity="0.22" class="dot-ring"/>
+      <circle cx="556" cy="152" r="5" fill="#F95440" stroke="#fff" stroke-width="1.5"/>
+      <text x="578" y="155" text-anchor="start" class="city-lbl">ÄGYPTEN</text>
+
+      <!-- INDIA -->
+      <circle cx="716" cy="185" r="12" fill="#F95440" opacity="0.22" class="dot-ring"/>
+      <circle cx="716" cy="185" r="6" fill="#F95440" stroke="#fff" stroke-width="1.8"/>
+      <text x="716" y="175" text-anchor="middle" class="city-lbl">INDIEN</text>
+
+      <!-- SRI LANKA -->
+      <circle cx="736" cy="234" r="10" fill="#F95440" opacity="0.22" class="dot-ring"/>
+      <circle cx="736" cy="234" r="5" fill="#F95440" stroke="#fff" stroke-width="1.5"/>
+      <text x="756" y="238" text-anchor="start" class="city-lbl">SRI LANKA</text>
+
+      <!-- BRAZIL -->
+      <circle cx="272" cy="310" r="12" fill="#F95440" opacity="0.22" class="dot-ring"/>
+      <circle cx="272" cy="310" r="6" fill="#F95440" stroke="#fff" stroke-width="1.8"/>
+      <text x="272" y="300" text-anchor="middle" class="city-lbl">BRASILIEN</text>
+
+    </svg>
+  </div>
+
+  <div class="bottom-tag">aiesec.de · Bremen</div>
+</div>
+
+</body>
+</html>
