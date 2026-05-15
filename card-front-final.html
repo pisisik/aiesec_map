@@ -1,247 +1,142 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Volunteer with AIESEC Bremen</title>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>AIESEC Bremen — Card Front</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --blue: #0037E3;
-    --teal: #00C1AE;
-    --orange: #F48024;
-    --red: #F95440;
-    --purple: #7552CC;
-    --yellow: #FFC345;
-    --bg: #FFF5F2;
-    --white: #ffffff;
-    --gray: #f0ebe8;
-    --text: #1a1020;
-    --muted: #7a6a65;
-    --border: rgba(0,0,0,0.08);
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
+  * { margin:0; padding:0; box-sizing:border-box; }
   body {
-    font-family: 'Raleway', sans-serif;
-    background: var(--bg);
-    color: var(--text);
+    background: #b0b0b0;
+    display: flex; align-items: center; justify-content: center;
     min-height: 100vh;
-    overflow-x: hidden;
+    font-family: 'Raleway', sans-serif;
   }
 
-  header {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 40px;
-    background: rgba(255,245,242,0.94);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border);
+  /* 85mm x 55mm — using mm units for correct print size */
+  .card {
+    width: 85mm;
+    height: 55mm;
+    background: #FFF5F2;
+    border-radius: 3mm;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
   }
-  .brand-main { font-size: 17px; font-weight: 900; font-family: 'Lato', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); line-height: 1; }
-  .brand-main span { color: var(--blue); }
-  .brand-sub { font-size: 10px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 3px; }
 
-  nav { display: flex; gap: 8px; }
-  nav a { text-decoration: none; font-size: 12px; font-weight: 500; padding: 7px 16px; border-radius: 20px; letter-spacing: 0.04em; transition: all 0.2s; color: var(--muted); }
-  nav a:hover { color: var(--text); background: rgba(0,0,0,0.05); }
-  nav a.cta { background: var(--blue); color: #fff; }
-  nav a.cta:hover { background: #0029b0; }
-
-  .hero { padding: 108px 40px 24px; text-align: center; }
-  .hero-tag { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); border: 1.5px solid rgba(249,84,64,0.3); background: rgba(249,84,64,0.06); padding: 5px 16px; border-radius: 20px; margin-bottom: 20px; }
-  h1 { font-family: 'Lato', sans-serif; font-size: clamp(34px, 5.5vw, 64px); font-weight: 900; line-height: 1.08; margin-bottom: 14px; color: var(--text); }
-  h1 em { font-style: italic; color: var(--blue); font-weight: 300; }
-  .hero-sub { font-size: 15px; color: var(--muted); max-width: 440px; margin: 0 auto 24px; line-height: 1.65; }
-
-  .legend { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
-  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 500; color: var(--muted); background: rgba(0,0,0,0.04); padding: 5px 12px; border-radius: 20px; }
-  .legend-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
-
-  .map-container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 8px; position: relative; }
-  #worldmap { width: 100%; height: auto; display: block; filter: drop-shadow(0 12px 40px rgba(0,0,0,0.1)); }
-
-  .land-blue   { fill: #0037E3; stroke: #fff; stroke-width: 0.7; }
-  .land-red    { fill: #F95440; stroke: #fff; stroke-width: 0.7; }
-  .land-teal   { fill: #00C1AE; stroke: #fff; stroke-width: 0.7; }
-  .land-purple { fill: #7552CC; stroke: #fff; stroke-width: 0.7; }
-  .land-orange { fill: #F48024; stroke: #fff; stroke-width: 0.7; }
-  .land-yellow { fill: #FFC345; stroke: #fff; stroke-width: 0.7; }
-  .land-dark   { fill: #92565E; stroke: #fff; stroke-width: 0.7; }
-
-  .city-group { cursor: pointer; }
-  .city-pulse { animation: pulse 2.8s ease-in-out infinite; }
-  @keyframes pulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 0; } }
-  .city-core { transition: filter 0.2s; }
-  .city-group:hover .city-core { filter: brightness(1.2) drop-shadow(0 0 5px rgba(255,255,255,0.8)); }
-  .city-label { font-family: 'Raleway', sans-serif; font-size: 8.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; pointer-events: none; fill: #fff; }
-
-  .panel {
-    position: fixed; top: 50%; right: -430px; transform: translateY(-50%);
-    width: 355px; max-height: 90vh; background: #fff; color: var(--text);
-    border-radius: 18px; overflow: hidden;
-    box-shadow: 0 24px 70px rgba(0,0,0,0.18);
-    transition: right 0.42s cubic-bezier(0.34, 1.56, 0.64, 1); z-index: 200;
-    display: flex; flex-direction: column;
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.5mm 3mm 2mm;
+    border-bottom: 0.3mm solid rgba(0,0,0,0.08);
+    flex-shrink: 0;
+    background: #FFF5F2;
+    z-index: 2;
   }
-  .panel.open { right: 24px; }
-  .panel-header { padding: 22px 22px 16px; position: relative; }
-  .panel-close { position: absolute; top: 14px; right: 14px; width: 30px; height: 30px; border-radius: 50%; background: #f2f2f2; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #888; transition: background 0.15s; }
-  .panel-close:hover { background: #e5e5e5; }
-  .panel-flag { font-size: 32px; margin-bottom: 8px; }
-  .panel-country { font-family: 'Lato', sans-serif; font-size: 26px; font-weight: 900; margin-bottom: 3px; }
-  .panel-region { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
-  .panel-stats { display: flex; padding: 10px 22px; background: var(--bg); border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
-  .stat { text-align: center; flex: 1; }
-  .stat-num { font-size: 20px; font-weight: 600; color: var(--red); }
-  .stat-label { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
-  .panel-projects { padding: 14px 22px; display: flex; flex-direction: column; gap: 9px; max-height: 65vh; overflow-y: auto; }
-  .project-card { display: block; text-decoration: none; padding: 13px 15px; border-radius: 12px; border: 1.5px solid #f0ebe8; transition: all 0.18s; position: relative; overflow: hidden; background: #fff; }
-  .project-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--red); border-radius: 4px 0 0 4px; }
-  .project-card:hover { border-color: var(--red); background: #fff8f7; transform: translateX(3px); }
-  .project-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px; }
-  .project-type-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; padding: 3px 9px; border-radius: 20px; background: rgba(249,84,64,0.1); color: var(--red); }
-  .project-duration { font-size: 10px; color: var(--muted); }
-  .project-name { font-size: 13px; font-weight: 500; color: var(--text); line-height: 1.35; padding-right: 22px; }
-  .project-arrow { position: absolute; right: 13px; top: 50%; transform: translateY(-50%); font-size: 16px; color: #ddd; transition: all 0.15s; }
-  .project-card:hover .project-arrow { color: var(--red); right: 11px; }
-  .panel-projects::-webkit-scrollbar { width: 4px; }
-  .panel-projects::-webkit-scrollbar-thumb { background: #e0e0e0; border-radius: 4px; }
 
-  .support-section { padding: 56px 40px 72px; max-width: 1100px; margin: 0 auto; }
-  .support-header { text-align: center; margin-bottom: 44px; }
-  .support-tag { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); border: 1.5px solid rgba(0,55,227,0.2); background: rgba(0,55,227,0.05); padding: 5px 16px; border-radius: 20px; margin-bottom: 16px; }
-  .support-header h2 { font-family: 'Lato', sans-serif; font-size: clamp(26px, 3.5vw, 46px); font-weight: 900; color: var(--text); line-height: 1.12; }
-  .support-header h2 em { font-style: italic; color: var(--blue); font-weight: 300; }
-  .support-intro { font-size: 14px; color: var(--muted); max-width: 540px; margin: 14px auto 0; line-height: 1.7; }
-  .support-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(235px, 1fr)); gap: 16px; }
-  .support-card { background: #fff; border: 1.5px solid var(--border); border-radius: 16px; padding: 28px 24px; transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; }
-  .support-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; border-radius: 16px 16px 0 0; }
-  .support-card:nth-child(1)::before { background: var(--blue); }
-  .support-card:nth-child(2)::before { background: var(--teal); }
-  .support-card:nth-child(3)::before { background: var(--red); }
-  .support-card:nth-child(4)::before { background: var(--purple); }
-  .support-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.09); }
-  .support-icon { font-size: 28px; margin-bottom: 14px; }
-  .support-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
-  .support-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+  .brand-name {
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    font-size: 4mm;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #1a1020;
+    line-height: 1;
+  }
+  .brand-name span { color: #0037E3; }
+  .brand-tagline {
+    font-size: 1.8mm;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #9a8a85;
+    margin-top: 0.8mm;
+  }
 
-  footer { text-align: center; padding: 24px 20px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); }
-  footer a { color: var(--blue); text-decoration: none; }
+  .nfc-badge {
+    display: flex;
+    align-items: center;
+    gap: 1.5mm;
+    background: rgba(0,55,227,0.06);
+    border: 0.3mm solid rgba(0,55,227,0.2);
+    border-radius: 10mm;
+    padding: 1.2mm 2.5mm 1.2mm 1.8mm;
+  }
+  .nfc-text {
+    font-size: 1.8mm;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #0037E3;
+    line-height: 1.3;
+  }
 
-  /* FAQ */
-  .faq-section { padding: 0 40px 72px; max-width: 1100px; margin: 0 auto; }
-  .faq-header { text-align: center; margin-bottom: 40px; }
-  .faq-tag { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); border: 1.5px solid rgba(249,84,64,0.25); background: rgba(249,84,64,0.06); padding: 5px 16px; border-radius: 20px; margin-bottom: 14px; }
-  .faq-header h2 { font-family: 'Lato', sans-serif; font-size: clamp(24px, 3vw, 42px); font-weight: 900; color: var(--text); line-height: 1.12; }
-  .faq-header h2 em { font-style: italic; color: var(--red); font-weight: 300; }
-  .faq-list { display: flex; flex-direction: column; gap: 10px; max-width: 780px; margin: 0 auto; }
-  .faq-item { background: #fff; border: 1.5px solid var(--border); border-radius: 14px; overflow: hidden; transition: box-shadow 0.2s; }
-  .faq-item:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.07); }
-  .faq-q { display: flex; align-items: center; justify-content: space-between; padding: 18px 22px; cursor: pointer; gap: 16px; }
-  .faq-q-text { font-size: 15px; font-weight: 600; color: var(--text); font-family: 'Lato', sans-serif; line-height: 1.35; }
-  .faq-icon { width: 26px; height: 26px; border-radius: 50%; background: var(--bg); display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--red); flex-shrink: 0; transition: transform 0.25s, background 0.2s; font-weight: 300; }
-  .faq-item.open .faq-icon { transform: rotate(45deg); background: rgba(249,84,64,0.1); }
-  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.25s; padding: 0 22px; }
-  .faq-item.open .faq-a { max-height: 300px; padding: 0 22px 18px; }
-  .faq-a p { font-size: 14px; color: var(--muted); line-height: 1.7; border-top: 1px solid #f0ebe8; padding-top: 14px; }
-  .faq-a a { color: var(--blue); text-decoration: none; font-weight: 500; }
-  .faq-a a:hover { text-decoration: underline; }
-  .faq-num { display: inline-block; width: 22px; height: 22px; border-radius: 50%; background: var(--red); color: #fff; font-size: 11px; font-weight: 700; text-align: center; line-height: 22px; margin-right: 10px; flex-shrink: 0; }
+  .map-area {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
 
-  @media (max-width: 640px) {
-    header { padding: 14px 18px; }
-    .hero { padding: 90px 18px 16px; }
-    nav a:not(.cta) { display: none; }
-    .panel { top: auto; right: 0; bottom: -100%; left: 0; width: 100%; border-radius: 20px 20px 0 0; transform: none; transition: bottom 0.42s cubic-bezier(0.34, 1.56, 0.64, 1); }
-    .panel.open { right: 0; bottom: 0; }
-    .support-section { padding: 40px 18px 56px; }
-    .faq-section { padding: 0 18px 56px; }
+  .map-area > svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* NFC circle — 25mm diameter, centered in card, bottom right */
+  .nfc-circle {
+    position: absolute;
+    bottom: 2mm;
+    right: 2mm;
+    width: 25mm;
+    height: 25mm;
+    border-radius: 50%;
+    border: 0.5mm dashed rgba(0,55,227,0.4);
+    background: rgba(255,245,242,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5mm;
+    z-index: 3;
+  }
+  .nfc-circle svg {
+    width: 8mm; height: 8mm;
+  }
+  .nfc-circle-text {
+    font-size: 1.6mm;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #0037E3;
+    text-align: center;
   }
 </style>
 </head>
 <body>
 
-<header>
-  <div style="display:flex;align-items:center;gap:10px;">
-    <svg id="bear-svg" style="height:48px;width:auto;flex-shrink:0;" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 238.5 238.5">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: #fbfcfb;
-      }
-
-      .cls-2 {
-        fill: #232938;
-      }
-
-      .cls-3 {
-        fill: #f8f9f9;
-      }
-
-      .cls-4 {
-        fill: #9ee6fc;
-      }
-
-      .cls-5 {
-        fill: #d6d7d8;
-      }
-
-      .cls-6 {
-        fill: #b4b4b6;
-      }
-    </style>
-  </defs>
-  <path class="cls-2" d="M165.52,130.51c6.53,5.55,10.27,11.95,4.99,18.8-4.94,6.41-11.98,5.2-17.5,6.77-4.2,1.2-7.32,7.58-16.74,9.08-3.14.5-6.16.08-9.15,1.54,2.7,6.97,9.92,13.03,8.23,18.8-1.69,5.76-6.35,10.16-12.38,11.12-3.62-1.17-7.52-2.38-8.02-4.61,3.29.69,6.96,4.03,10.82.91.43-.35-.21-1.79-.45-2.06.19-.25.47-.75.76-.9.49-.25,1.46-.19,1.99.86,1.05.99,2.19-.47,1.17-1.46-.62-.6-.79-1.75-.53-2.14.29-.44,1.39-.42,1.79-.22l1.04-1.14c-.35-1.08-.09-2.26,1.17-3.36-2.53-5.42-5.72-10.46-9.12-15.39-1.62-2.35-3.78-2.92-6.3-3.73-8.96-2.88-20.68-12.45-19.39-16.66.15-.49,1.55-.75,1.91-.14l1.43,2.37c12.05,15.55,37.57,15.37,39.03,12.28.25-.53,0-1.37-.28-1.86.11-.51.34-1.24.69-1.49,1.23-.88,2.27,1.67,2.86,1.72.54.04,1.65-.6,1.31-1.8-.16-.56-.28-1.84.2-2.09.46-.25,1.42.17,2.14.83.42.28,1.32-1.23.95-1.96-.24-.48-1.15-.89-1.32-1.91l-.72-4.24c-7.04-6.78-16.38-6.92-25.61-13.63-1.21-.88-2.08-1.61-1.91-3.14,1.28-.13,2.88-.13,3.97,1.13.94,1.09,2.34,1.01,3.06,1.51,4.13,2.86,9.01,4.38,13.74,5.88,1.36.43,2.66,1.72,4.57,2.2.97-2.73.27-4.9.09-7.12l-.23-2.86c.77-.16,1.54-.2,2.37-.14l.61,1.68c1.15,3.2.56,6.87-.15,10.57l4.69,6.65c1.5,2.13,6.64,1.43,8.62.52,1.19-.55.7-2.15.45-2.72-.23-.51-.05-1.73.45-2.04,1.83-1.13,1.88,3.11,3.57,2.78,2.12-.42.04-4.42,1.01-4.64,1.51-.35,2.32,1.05,2.64,2.46,7.29-5.28-1.84-12.66-9.67-19.15l-7.67-6.37-6.85,4.36c-.38.24-1.07.6-1.47.73-4.65,1.52-9.26,3.25-14.14,3.74l-.02-2.89c11.08-1.69,21.37-7.18,28.45-16.45,9.18-12.03,5.39-28.88-2.36-42.15,2.29-2.43,5.77-3.99,7.08-7.08,3.17-7.46-1.88-16.31-9.98-17.12-5.2-.52-9.44,3.43-12.26,6.74-6.43-2.54-14.22-2.95-20.96-1.09-.69-.88-1.74-1.7-2.26-1.58-1.04.24-2.34,2.39-3.67,1.85-.45-.18-.98-.63-1.6-1.37-1.46.78-2.17,1.98-3.6,3.31l-2.94-2.27c-5.57,4.79-12.33,5.29-14.88,12.03-2.73-4.1-6.72-5.26-11.2-4.43-3.24.6-6.26,3.2-8.01,6.83-1.82,3.77-1.98,7.84.57,11.86,1.62,2.55,4.92,5.08,9.42,6.01-4.21,14.28-7.45,29.61,5.65,37.31,1.43.5,1.4,1.91,1.59,2.74-2.8.04-2.23,3.2-2.89,4.5-1.85,3.65-4.09,16.2-5.21,22.85-1,5.97-2.11,12.13-.97,18.63,3.98,22.76,23.85,14.54,34.25,21.55,2.78.08,4.86.98,5.19,2.32.11.44.07,1.1-.26,1.29-.74.42-2.7-1.56-3.94-1.95-.12-.04-.59-.17-1.04-.36-.06-.02-.23-.1-.47-.19-.18-.07-.33-.12-.42-.15l-1.42-.59c-8.93-1.73-17.85-3.04-26.25-6.69-5.03-2.19-7.38-8.29-8.29-12.99-2.09-10.83,1.01-24,3.6-35.64,1-4.49,1.65-8.74,4.07-13.22-12.1-8.07-11.22-22.68-6.67-36.76-3.09-2.3-6.4-3.77-8.53-6.87-4.05-5.88-2.99-13.16,1.23-18.65,3.93-5.11,11.55-6.73,17.89-4.22,2.11.83,3.16-.35,4.65-1.25,4.73-2.88,9.53-5.09,13.94-8.55.62-.49,1.15-1.31,1.92-1.25.59.05,1.38.47,2.17,1.29,3.09-1.76,6.67-3.73,10.38-2.41.66.97-1.03,2.4-2.05,3.54,7.11-.87,12.98-.99,19.43.4,3.56-3.57,8.68-6.17,13.76-5.82,9.14.62,14.79,9.43,13.73,18.28-.52,4.36-3.75,7.23-7.32,9.83,9.94,16.94,11.11,36.79-4.7,49.91l12.46,10.58ZM131.77,186.11l-.69,1.5c.03.11,2.19,0,.69-1.5Z"/>
-  <path class="cls-5" d="M125.33,190.87c.24.27.88,1.71.45,2.06-3.86,3.12-7.54-.22-10.82-.91-.95-.2-1.68-.84-2.48-1.38-10.4-7.01-30.27,1.21-34.25-21.55-1.14-6.5-.03-12.66.97-18.63,1.04.3,1.17,1.09,1.16,2.23-.06,6.35-.4,12.9,2.24,18.79s8.48,9.18,14.43,10.17c8.57,1.43,16.17,4.33,23.54,8.68,1.38.81,3.55.43,4.76.54Z"/>
-  <path class="cls-1" d="M128.24,127.96c-4.04.62-7.9,1.89-12.23,1.72.37,1.9,1.77,2.1,2.58,2.02-.17,1.53.7,2.26,1.91,3.14,9.23,6.71,18.56,6.85,25.61,13.63l.72,4.24c.17,1.02,1.08,1.43,1.32,1.91.37.74-.53,2.24-.95,1.96-.72-.66-1.68-1.07-2.14-.83s-.36,1.54-.2,2.09c.34,1.2-.77,1.84-1.31,1.8-.59-.05-1.63-2.6-2.86-1.72-.35.25-.59.98-.69,1.49-13.91,1.86-23.28-.78-35.13-8.78-1.29-.87-2.13-1.88-3.63-1.64l-1.43-2.37c-.37-.61-1.76-.35-1.91.14-1.29,4.21,10.43,13.78,19.39,16.66,2.53.81,4.68,1.38,6.3,3.73,3.4,4.93,6.58,9.97,9.12,15.39-1.25,1.1-1.52,2.28-1.17,3.36.05.18.16.24.22.23,1.5,1.49-.66,1.62-.69,1.5-.23-.37-.45-.59-.58-.6-.41-.2-1.5-.22-1.79.22-.25.39-.09,1.54.53,2.14,1.03.99-.12,2.45-1.17,1.46-.53-1.05-1.51-1.11-1.99-.86-.29.15-.57.65-.76.9-1.2-.12-3.38.27-4.76-.54-7.37-4.35-14.97-7.25-23.54-8.68-5.95-.99-11.88-4.48-14.43-10.17s-2.31-12.44-2.24-18.79c.01-1.13-.11-1.93-1.16-2.23,1.12-6.65,3.36-19.2,5.21-22.85,5.2,7.11,16.11,9.06,23.06,2.5-7.88-.56-14.84-2.92-20.17-6.99-.19-.83-.17-2.24-1.59-2.74-13.1-7.7-9.86-23.03-5.65-37.31-4.51-.94-7.8-3.46-9.42-6.01-2.55-4.02-2.39-8.09-.57-11.86s4.77-6.23,8.01-6.83c4.48-.83,8.47.32,11.2,4.43,2.55-6.74,9.32-7.23,14.88-12.03l2.94,2.27c1.43-1.34,2.14-2.53,3.6-3.31.61.73,1.14,1.18,1.6,1.37,1.33.54,2.62-1.62,3.67-1.85.52-.12,1.57.7,2.26,1.58,6.74-1.86,14.53-1.44,20.96,1.09,2.82-3.32,7.06-7.27,12.26-6.74,8.1.82,13.15,9.67,9.98,17.12-1.31,3.09-4.79,4.65-7.08,7.08,7.75,13.27,11.54,30.13,2.36,42.15-7.08,9.27-17.37,14.76-28.45,16.45ZM146.51,55.55l5.84,6.75c.62.72,1.11,1.51,1.69,1.66.47.12,1.16-.85,1.78-.98,1.47-.32,3.24-.6,3.56-2.81.57-4.05-1.9-8.78-6.03-9.86-3.02-.79-7.54,1.81-8.17,3.72-.36,1.07.98,1.12,1.33,1.52ZM77.1,77.23c.9-.34,2.01-.04,2.65-.4.7-.4.56-1.47,1.07-2.55l3.23-6.86c.27-.57,2.14-1.22,1.27-2.32-2.01-2.58-6.09-2.8-8.78-1.4-2.98,1.55-4.32,4.96-4.1,8.68.16,2.66,2.07,5.83,4.64,4.86ZM142.59,63.94c-2.02-.88-4.18-2.02-6.42-.65,1.89,2.06,4.29,4.03,7.13,3.93,1.05-.04.59-2.71-.71-3.28ZM94.17,74.11c-2.94-.25-6.26,3.65-4.77,5.81,2.25.84,5.14-3.64,4.77-5.81ZM147.73,97.96c-.08,1.88-2.11,4.57-.56,6.43,1.91,2.28,5.66,1.46,8.08.48,2.1-.85,3.1-2.4,3.05-4.31-.12-4.68-6.67-3.3-6.74-4.97-.07-1.57-.46-3.03-2.25-3.5-1.45-.38-3.11.08-3.6,1.91-.39,1.47.06,3.5,2.02,3.96ZM118.49,103.89c-1.25.37-3.73.81-3.53,2.91-.29.38-1.11.58-1.33.93-.46.72-.15,1.82-.03,2.55.63,3.89,3.76,4.93,6.14,6.21,3.59,1.92,5.99-.84,9.18-1.08,6.5-.5,11.95-4.1,11.62-11.3-.06-1.22-1.27-1.39-2.28-1.66s-1.99-2.23-3.99-1.3c-1.27-2.66-4.02-2.93-6.73-2.85-3.85.12-7.51,2.29-9.06,5.58ZM99.53,109.28l-3.51,1.54c-1.96.86-3.08,4.24-1.55,5.95,2.02,2.26,5.22,1.65,7.85.94s4.72-3.01,3.54-5.68c-.73-1.65-2.98-2.02-4.42-2.6.66-1.27,1.3-2.7.98-4.15-.28-1.26-1.8-2.48-3.39-2.39-1.97.11-2.81,2.12-2.65,3.49.21,1.83,1.26,2.79,3.14,2.89Z"/>
-  <path class="cls-3" d="M160.38,148.99c-5.24,1.31-9.32-7.06-11.72-13.84-.34-.97-1.17-1.26-1.9-1.17l-.61-1.68c-.09-2.24-1.46-3.86-2.29-5.92l6.85-4.36,7.67,6.37c7.83,6.5,16.96,13.87,9.67,19.15-.32-1.41-1.13-2.81-2.64-2.46-.97.23,1.11,4.22-1.01,4.64-1.69.34-1.75-3.91-3.57-2.78-.51.31-.68,1.53-.45,2.04Z"/>
-  <path class="cls-3" d="M142.41,127.11c.23,1.9.01,3.96,1.38,5.33l.23,2.86c-1.44-.14-2.69,2.35-4.66,4.92-4.73-1.5-9.61-3.02-13.74-5.88,1.34-.9,2.24-2.08,2.64-3.49,4.88-.49,9.49-2.23,14.14-3.74Z"/>
-  <path class="cls-5" d="M87.3,123.1c5.33,4.07,12.29,6.44,20.17,6.99-6.95,6.56-17.86,4.62-23.06-2.5.66-1.3.08-4.46,2.89-4.5Z"/>
-  <path class="cls-5" d="M140,159.41c.29.48.53,1.32.28,1.86-1.46,3.09-26.98,3.27-39.03-12.28,1.49-.24,2.33.77,3.63,1.64,11.85,8,21.21,10.64,35.13,8.78Z"/>
-  <path class="cls-5" d="M160.38,148.99c.25.57.74,2.17-.45,2.72-1.98.91-7.12,1.61-8.62-.52l-4.69-6.65c.71-3.69,1.31-7.36.15-10.57.73-.09,1.56.2,1.9,1.17,2.4,6.78,6.47,15.15,11.72,13.84Z"/>
-  <path class="cls-5" d="M128.24,127.96l.02,2.89c-.41,1.41-1.31,2.59-2.64,3.49-.72-.5-2.12-.41-3.06-1.51-1.09-1.27-2.69-1.26-3.97-1.13-.81.08-2.21-.12-2.58-2.02,4.33.17,8.19-1.11,12.23-1.72Z"/>
-  <path class="cls-5" d="M144.02,135.31c.18,2.22.88,4.39-.09,7.12-1.91-.48-3.21-1.77-4.57-2.2,1.97-2.57,3.22-5.05,4.66-4.92Z"/>
-  <path class="cls-5" d="M143.87,126.39c.82,2.06,2.2,3.68,2.29,5.92-.83-.07-1.6-.03-2.37.14-1.37-1.37-1.16-3.44-1.38-5.33.4-.13,1.08-.48,1.47-.73Z"/>
-  <path class="cls-2" d="M134.28,101.16c1.07,5.8-4.2,6.44-4.93,8.43-.25.69.21,2.79.99,2.77,5.51-.13,8.1-5.04,7.92-9.91,1,.26,2.22.43,2.28,1.66.33,7.2-5.12,10.81-11.62,11.3-3.18.24-5.59,3-9.18,1.08-2.39-1.28-5.52-2.32-6.14-6.21-.12-.73-.43-1.83.03-2.55.23-.35,1.04-.55,1.33-.93,1.09,4.6,4.27,8.05,9.23,7.32,1.35-.2,2.22-.87,2.66-1.66.48-.85.07-3.28-.78-3.21-4.14.31-7.05-1.46-7.59-5.36,1.56-3.3,5.22-5.46,9.06-5.58,2.71-.08,5.46.19,6.73,2.85Z"/>
-  <path class="cls-4" d="M101.44,109.44c1.43.58,3.68.95,4.42,2.6,1.18,2.66-.94,4.98-3.54,5.68s-5.83,1.31-7.85-.94c-1.53-1.71-.41-5.09,1.55-5.95l3.51-1.54c.53-.23,1.33-.07,1.91.16Z"/>
-  <path class="cls-4" d="M147.73,97.96c.88.1,1.89.17,2.84-.39.55-.32.87-1.26.99-1.98.07,1.67,6.62.29,6.74,4.97.05,1.91-.95,3.46-3.05,4.31-2.42.98-6.17,1.8-8.08-.48-1.55-1.86.48-4.54.56-6.43Z"/>
-  <path class="cls-2" d="M84.06,67.42c-1.9-1.71-4.62-2.5-6.51-1.12-1.71,1.25-2.82,3.71-2.47,6.09.28,1.88,1.76,3.06,2.02,4.83-2.58.97-4.48-2.2-4.64-4.86-.22-3.71,1.12-7.13,4.1-8.68,2.68-1.39,6.77-1.18,8.78,1.4.86,1.11-1,1.75-1.27,2.32Z"/>
-  <path class="cls-6" d="M84.06,67.42l-3.23,6.86c-.51,1.08-.37,2.15-1.07,2.55-.64.37-1.76.06-2.65.4-.25-1.78-1.74-2.96-2.02-4.83-.36-2.37.76-4.84,2.47-6.09,1.89-1.38,4.61-.59,6.51,1.12Z"/>
-  <path class="cls-6" d="M118.49,103.89c.54,3.9,3.45,5.67,7.59,5.36.85-.06,1.26,2.37.78,3.21-.45.79-1.32,1.46-2.66,1.66-4.97.74-8.15-2.71-9.23-7.32-.2-2.1,2.28-2.54,3.53-2.91Z"/>
-  <path class="cls-6" d="M155.83,62.98c-.62.14-1.31,1.11-1.78.98-.58-.15-1.07-.94-1.69-1.66l-5.84-6.75c1.81-.96,3.47-2.57,5.63-2.55,2.3.02,3.76,2.24,4.3,3.64.88,2.26.05,4.21-.62,6.34Z"/>
-  <path class="cls-2" d="M155.83,62.98c.66-2.13,1.49-4.08.62-6.34-.54-1.4-2-3.62-4.3-3.64-2.16-.02-3.82,1.59-5.63,2.55-.35-.4-1.69-.45-1.33-1.52.64-1.91,5.16-4.52,8.17-3.72,4.13,1.09,6.6,5.82,6.03,9.86-.31,2.21-2.09,2.48-3.56,2.81Z"/>
-  <path class="cls-6" d="M138.26,102.46c.17,4.87-2.41,9.77-7.92,9.91-.78.02-1.24-2.08-.99-2.77.72-1.99,5.99-2.63,4.93-8.43,1.99-.93,2.99,1.04,3.99,1.3Z"/>
-  <path class="cls-2" d="M101.44,109.44c-.59-.24-1.38-.4-1.91-.16-1.88-.1-2.93-1.06-3.14-2.89-.16-1.37.67-3.37,2.65-3.49,1.59-.09,3.11,1.13,3.39,2.39.32,1.45-.32,2.87-.98,4.15Z"/>
-  <path class="cls-2" d="M151.57,95.59c-.13.72-.45,1.66-.99,1.98-.95.56-1.96.49-2.84.39-1.96-.45-2.41-2.49-2.02-3.96.49-1.84,2.15-2.29,3.6-1.91,1.79.47,2.18,1.93,2.25,3.5Z"/>
-  <path class="cls-5" d="M142.59,63.94c1.3.57,1.76,3.24.71,3.28-2.84.1-5.24-1.87-7.13-3.93,2.24-1.37,4.4-.23,6.42.65Z"/>
-  <path class="cls-5" d="M94.17,74.11c.37,2.18-2.52,6.66-4.77,5.81-1.48-2.16,1.83-6.07,4.77-5.81Z"/>
-</svg>
+<div class="card">
+  <div class="top-bar">
     <div>
-      <div class="brand-main">AIESEC <span>in Bremen</span></div>
-      <div class="brand-sub">Volunteer worldwide</div>
+      <div class="brand-name">AIESEC <span>in Bremen</span></div>
+      <div class="brand-tagline">Our worldwide global volunteer projects</div>
     </div>
-  </div>
-  <nav>
-    <a href="https://aiesec.de/alle" target="_blank">Alle Projekte</a>
-    <a href="https://aiesec.de/anmeldung" class="cta" target="_blank">Jetzt bewerben</a>
-  </nav>
-</header>
-
-<main>
-  <div class="hero">
-    <div class="hero-tag">🌍 10+ Länder · Echte Wirkung</div>
-    <h1>Volunteer<br><em>with AIESEC</em></h1>
-    <p class="hero-sub">Klick auf einen Standort und entdecke Freiwilligenprojekte rund um die Welt.</p>
-    <div class="legend">
-      <div class="legend-item"><div class="legend-dot" style="background:#F95440"></div>Freiwilligenprojekt</div>
+    <div class="nfc-badge">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:5mm;height:5mm;flex-shrink:0;">
+        <path d="M20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4" stroke="#0037E3" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8" stroke="#0037E3" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="12" cy="12" r="2" fill="#0037E3"/>
+      </svg>
+      <div class="nfc-text">Hold your phone<br>to discover more</div>
     </div>
   </div>
 
-  <div style="width:100%;max-width:1400px;margin:0 auto;">
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;border-radius:10px;filter:drop-shadow(0 12px 40px rgba(0,0,0,0.1));" version="1.1" viewBox="0 0 735 455.25">
+  <div class="map-area">
+    <svg id="map" style="width:100%;height:100%;display:block;opacity:0.75;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 735 455.25" style="width:100%;height:100%;display:block;opacity:0.75;">
   <!-- Generator: Adobe Illustrator 30.4.0, SVG Export Plug-In . SVG Version: 2.1.4 Build 226)  -->
   <defs>
     <style>
@@ -501,7 +396,6 @@
         <polygon class="st6" points="240.38 54.76 240.39 55.25 240.39 55.75 240.38 56.24 240.36 55.75 240.36 55.25 240.38 54.76"/>
         <path class="st5" d="M316.43,110.9c-.48-.53-1.35-1.06-1.88-1.07-.94-.02-1.38,1.84-.51,1.91,2.63.22,3.69,1.76,3.95,3.42.29,1.83.36,3.48-.74,4.74l-3.12-1.43c-.67-.31-1.68.74-2.37,1.53-1.34-5.2-5.99-4.99-2.8-8.52-.08-.19-.18-.43-.58-.73.07.02.08-1,.83-.28l.28.43c.65.2,1.28.37,2.11.24.63-.1,1.12-1.08.88-1.91-.11,0-.21-.06-.28-.15l-.42-.6c-.09-.12-.21-.23-.29-.29-.74-.45,0-1.49.65-.7.04.09.2.22.3.36l.37.48.4.42c1.21-.55,2.43-.7,4.03.24-.39.62-.64,1.23-.82,1.9h.01ZM312.84,116.25c0-.46-.37-.84-.84-.84s-.84.37-.84.84.37.84.84.84.84-.37.84-.84Z"/>
         <rect class="st6" x="316.61" y="47.36" width=".53" height=".53" transform="translate(59.14 238.01) rotate(-45)"/>
-        <circle class="st3" cx="312" cy="116.25" r=".84"/>
       </g>
     </g>
     <g>
@@ -654,7 +548,6 @@
       <path class="st3" d="M471.15,228.68c.21.71.91,1.1,1.3,1.6.5.63.9,1.08,1.65,1.48l1.41.73c.54,1.9,2.82,2.94,4.59,3.72l2.05,2.34c-.4.7-1.01,1.5-1.57,2.03l-2.7,2.52c-.91.38-2.53,1.45-3.84.77-.89-.46-1.1-2.3-1.36-3.19l-6.66-3.21c-1.17-.57-2.61.36-3.16,1.16l-.47.09-2.65-.22c-.09-4.59-2.57-4.51-2.92-8.96.93-.34,2.43-1.36,3.19-.72l2.22,1.87c.91.76,2.79.59,3.38-.18.43-.55.46-1.75.47-2.48.46-.16.88-.45,1.21-.81,1.3.4,2.42,1.36,3.87,1.45h0Z"/>
       <path class="st6" d="M457.41,228.08c-.58.22-.65.88-.61,1.46.35,4.44,2.83,4.37,2.92,8.96l.06,2.38c-3.53,1.89-10.18-.29-9.95-3.88l.02-1.42c.72-1.16,1.9-2.59,1.55-4-.28-1.15-1.65-2.03-2.82-2.04l-2.32-7.5.72-.92,2.54-3.42c1.66.5,2.81-.3,3.55-1.53,1.06-.54,3.33-.34,4.63.21l.09,3.81c-1.89-.17-3.09.31-3.64,1.93-1.37,4.05,2.96,2.84,3.25,5.97h.01Z"/>
       <path class="st1" d="M520.48,210.68l.19.46c-1.56,1.15-1.94,2.89-2.16,5.38-1.21-.24-3.98-1.26-4.33-.04l-1.36,4.66c-5.61.54-1.34,6.29-4.54,8.11l-7.25,4.13c-.74.42-2.53-.4-3.04.13-.77.8-1.01,1.97-.37,3.09l1.6,2.83-1.8-.05c0-1.17-.76-3.64-2.45-3.83-3.19-.36-5.9-.74-9.32-.46.65,1.8,1.06,2.56,1.19,4.32,1.45-.89,2.6-1.75,4.64-1.97.99-.11,1.34,1.76.6,2.61-1.67.05-2.72.54-4.7.55l-6.79-.03c.56-.53,1.18-1.33,1.57-2.03.8.39,1.99.56,2.71.11,1.79-1.11-2.98-5.4,1.09-4.6.84.17,1.09-.85.86-1.15-.29-.38-.71-.59-1.41-.67-2.9-.31-3.34-3.14-4.2-5.16l-.17-.41c-1.55-3.62-6.29.79-8.62-2.77-.09-.14-.21-.24-.33-.32-.16-.11-.31-.25-.42-.41l-.38-.46c-.82-.92-1.91-1.57-3.16-1.51l-.87.04-.49-1.85c-.12-.45,1.53-1.39,2.15-1.16.9,1.4,1.62,3.17,3.03,4.07l.31.2.58.46c.09.02.18.05.25.11,3.28,2.73,8.11-1.88,8.5,3,.09.12.21.25.43.39.46,1.64,1.47,4.72,4.07,4.49l5.06-4.15c2.62.08,3.8-.54,5.87-1.23,3.46-1.15,7.76.67,11.25,1.38.98-2.67-.25-4.12-1.08-6.15,1.32-.09,4.14.36,4.5-.87l1.55-5.26c1.42.54,3.79.73,4.38-.71.41-1,.3-2.22.74-2.66.48-.49,1.59-.45,2.13-.61h0ZM492.59,233.61c1.54,1.26,4.26.8,5.12-1.64,3.53.18,6.4-1.28,8.88-3.89-3.15-1.37-6.11-2.04-9.16-1.39l-1.45,1.76c-.37.45-3.21-1.62-4.15-.3-.19.27-.57.48-.51,1.39,1.81-.4,4,.4,4.43,2.18-.29.92-1.92,1.52-3.15,1.89h0Z"/>
-      <circle class="st1" cx="591.01" cy="198.28" r=".64"/>
       <path class="st1" d="M591.65,198.28c-3.21-.21-6.48-1.04-8.41.61,1.68,3.76-1.86,10.24-5.19,10.5-1.28.1-2.08-.08-2.7,1.26-.52,1.13-.42,2.21,1.1,2.28l.19,1.39-3.49-.54c.35-1.91.88-3,1.86-4.86-5.18-4.59-9.89,6.68-17.46-1.62l-7.69-.39c-.94-2.99-3.7-4.82-6.71-4.41l-2.71,5.71c-5.23,1.27-6.8-2.23-8.61-2.54-2.86-.48-4.71,3.95-8.44,2.48l6.35-3.24c3.4-1.74,7.19,4.37,10.03,2.01,1.54-1.29,1.72-3.94,2.75-5.92,8.06.69,6.85,5.98,11.15,5.19,1.25-.23,4.07-.49,5.1.67,2.53,2.85,5.94,3.03,8.99.89,5.06-3.55,7.29,1.24,11.29-.05,1.46-.47,4.14-4.86,3.11-8.86,1.22-2.24,6.78-3.26,9.49-.57h0Z"/>
       <path class="st1" d="M580.33,216.19l-.04,1.25c-5-.84-7.85,6.78-13.37,4.41,1.38,2.57.09,4.67-2.21,5.41l-10.55,3.37c-5.28-2.37-10.45-3.48-16.25-2.92l-1.92-3.95-9.03-2.98c1.19-3.39.27-5.92-2.06-7.55.05-.31-.05-.63-.13-.87,3.21.46,4.42,3.97,3.82,7.44l8.4,3.09c.57,1.33,1.17,4.51,3.66,3.85,4.8-1.27,8.52,1.01,12.99,1.82,3.74.68,8.13-2.02,11.52-2.98l1.11-5.19c6.38,2.07,8.22-4.91,14.05-4.2h.01Z"/>
       <path class="st1" d="M418.66,195.13c-.66-.34-.83-.72-1.03-.98l1.03.98Z"/>
@@ -803,236 +696,79 @@
       <path class="st4" d="M401.18,222.72l-.14,2.91c-.03.6-.44,1.34-.82,1.48-.31.12-.72-.43-.95-.7-.18-.92-1.08-1.67-2.6-1.46l-1.32-5.3c-.19-.78,1.25-.95,1.67-.54,1.38,1.34,1.39,3.57,4.17,3.61h0Z"/>
       <path class="st4" d="M378.32,216.74c-2.29.11-3.6.15-5.36.79-.64-.54-.88-.96-.94-1.25-.1-.51.28-1.36,1.22-1.47,1.66-.13,3.4-.41,5.08,1.93h0Z"/>
       <path class="st4" d="M529.03,267.51c-.39,1.53-4.15,1.52-4.8-.61.17-.96,2.46-1.27,4.8.61Z"/>
-      <circle class="st4" cx="524.25" cy="264.75" r=".83"/>
       <path class="st4" d="M449.85,235.57c-.18-.49-.88-1.78-1.96-1.38-.8.3-1.86.85-2.44.21-.4-.44-.71-1.71-.65-2.27.14-1.32,4.51-.47,3.79-2.6,1.17,0,2.54.89,2.82,2.04.34,1.41-.83,2.84-1.55,4h-.01Z"/>
       <path class="st4" d="M413.36,216.97c-2.17-.75-2.07-2.38-2.94-3.8,1.03-.31,1.8-.03,2.53.56.65.53,1.54,1.86.41,3.24Z"/>
       <path class="st4" d="M492.59,233.61c1.24-.37,2.87-.98,3.15-1.89-.43-1.78-2.62-2.58-4.43-2.18-.06-.91.32-1.12.51-1.39.94-1.32,3.78.75,4.15.3l1.45-1.76c3.05-.64,6.01.03,9.16,1.39-2.48,2.61-5.34,4.07-8.88,3.89-.86,2.44-3.58,2.9-5.12,1.64h0Z"/>
       <path class="st4" d="M497.42,239.38l-5.35.67c.74-.85.39-2.72-.6-2.61-2.04.22-3.18,1.08-4.64,1.97-.13-1.76-.54-2.51-1.19-4.32,3.42-.28,6.13.09,9.32.46,1.7.19,2.45,2.66,2.45,3.83h.01Z"/>
     </g>
   </g>
-  <circle class="st0" cx="264.06" cy="334.51" r="2.33"/>
-  <circle class="st0" cx="354" cy="232.49" r="2.33"/>
-  <circle class="st0" cx="406.88" cy="226.74" r="2.33"/>
-  <circle class="st0" cx="502.56" cy="273.5" r="2.33"/>
-  <circle class="st0" cx="413.31" cy="260.24" r="2.33"/>
-  <circle class="st0" cx="377.88" cy="247.41" r="2.33"/>
-  <circle class="st0" cx="511.5" cy="299.86" r="2.33"/>
-  <circle class="st0" cx="382.49" cy="226.44" r="2.33"/>
-  <circle class="st0" cx="342.7" cy="237.8" r="2.33"/>
-
-  <!-- PROJECT DOTS -->
   <style>
-    .dot-g { cursor: pointer; }
+    .dot-g { cursor:pointer; }
     .dp { animation: dpulse 2.5s ease-in-out infinite; }
-    @keyframes dpulse { 0%,100%{ opacity:0.3 } 50%{ opacity:0 } }
-    .dlbl { 
-      font-family: Raleway, sans-serif; 
-      font-weight: 700; 
-      font-size: 7px; 
-      letter-spacing: 0.07em; 
-      text-transform: uppercase;
-      paint-order: stroke;
-      stroke: #fff;
-      stroke-width: 3px;
-    }
+    @keyframes dpulse { 0%,100%{ opacity:0.25 } 50%{ opacity:0 } }
+    .dlbl { font-family:Raleway,sans-serif;font-weight:700;font-size:5.5px;letter-spacing:0.06em;text-transform:uppercase;paint-order:stroke;stroke:#fff;stroke-width:2.5px; }
   </style>
   <g class="dot-g" onclick="openPanel('brasilien')">
-    <circle cx="264.06" cy="334.51" r="12" fill="#F95440" class="dp" style="animation-delay:0.0s"/>
-    <circle cx="264.06" cy="334.51" r="6" fill="#F95440" stroke="#fff" stroke-width="2"/>
-    <text x="264.06" y="325.51" text-anchor="middle" class="dlbl" fill="#1a1020">BRASILIEN</text>
+    <circle cx="264.06" cy="334.51" r="8" fill="#F95440" class="dp" style="animation-delay:0.0s"/>
+    <circle cx="264.06" cy="334.51" r="4" fill="#F95440" stroke="#fff" stroke-width="1.5"/>
   </g>
   <g class="dot-g" onclick="openPanel('spanien')">
-    <circle cx="342.7" cy="237.8" r="12" fill="#F95440" class="dp" style="animation-delay:0.3s"/>
-    <circle cx="342.7" cy="237.8" r="6" fill="#F95440" stroke="#fff" stroke-width="2"/>
-    <text x="330.0" y="228.8" text-anchor="end" class="dlbl" fill="#1a1020">SPANIEN</text>
+    <circle cx="342.7" cy="237.8" r="8" fill="#F95440" class="dp" style="animation-delay:0.3s"/>
+    <circle cx="342.7" cy="237.8" r="4" fill="#F95440" stroke="#fff" stroke-width="1.5"/>
   </g>
   <g class="dot-g" onclick="openPanel('portugal')">
-    <circle cx="354.0" cy="232.49" r="12" fill="#F95440" class="dp" style="animation-delay:0.6s"/>
-    <circle cx="354.0" cy="232.49" r="6" fill="#F95440" stroke="#fff" stroke-width="2"/>
-    <text x="330.0" y="240.0" text-anchor="end" class="dlbl" fill="#1a1020">PORTUGAL</text>
+    <circle cx="354.0" cy="232.49" r="8" fill="#F95440" class="dp" style="animation-delay:0.6s"/>
+    <circle cx="354.0" cy="232.49" r="4" fill="#F95440" stroke="#fff" stroke-width="1.5"/>
   </g>
   <g class="dot-g" onclick="openPanel('tunesien')">
-    <circle cx="377.88" cy="247.41" r="12" fill="#F95440" class="dp" style="animation-delay:0.8999999999999999s"/>
-    <circle cx="377.88" cy="247.41" r="6" fill="#F95440" stroke="#fff" stroke-width="2"/>
-    <text x="377.88" y="261.40999999999997" text-anchor="middle" class="dlbl" fill="#1a1020">TUNESIEN</text>
+    <circle cx="377.88" cy="247.41" r="8" fill="#F95440" class="dp" style="animation-delay:0.8999999999999999s"/>
+    <circle cx="377.88" cy="247.41" r="4" fill="#F95440" stroke="#fff" stroke-width="1.5"/>
   </g>
   <g class="dot-g" onclick="openPanel('italien')">
-    <circle cx="382.49" cy="226.44" r="12" fill="#F95440" class="dp" style="animation-delay:1.2s"/>
-    <circle cx="382.49" cy="226.44" r="6" fill="#F95440" stroke="#fff" stroke-width="2"/>
-    <text x="370.0" y="210.0" text-anchor="end" class="dlbl" fill="#1a1020">ITALIEN</text>
+    <circle cx="382.49" cy="226.44" r="8" fill="#F95440" class="dp" style="animation-delay:1.2s"/>
+    <circle cx="382.49" cy="226.44" r="4" fill="#F95440" stroke="#fff" stroke-width="1.5"/>
   </g>
   <g class="dot-g" onclick="openPanel('rumanien')">
-    <circle cx="406.88" cy="226.74" r="12" fill="#F95440" class="dp" style="animation-delay:1.5s"/>
-    <circle cx="406.88" cy="226.74" r="6" fill="#F95440" stroke="#fff" stroke-width="2"/>
-    <text x="406.88" y="210.0" text-anchor="middle" class="dlbl" fill="#1a1020">RUMÄNIEN</text>
+    <circle cx="406.88" cy="226.74" r="8" fill="#F95440" class="dp" style="animation-delay:1.5s"/>
+    <circle cx="406.88" cy="226.74" r="4" fill="#F95440" stroke="#fff" stroke-width="1.5"/>
   </g>
   <g class="dot-g" onclick="openPanel('griechenland')">
-    <circle cx="413.31" cy="260.24" r="12" fill="#F95440" class="dp" style="animation-delay:1.7999999999999998s"/>
-    <circle cx="413.31" cy="260.24" r="6" fill="#F95440" stroke="#fff" stroke-width="2"/>
-    <text x="422.31" y="258.0" text-anchor="start" class="dlbl" fill="#1a1020">GRIECHENLAND</text>
+    <circle cx="413.31" cy="260.24" r="8" fill="#F95440" class="dp" style="animation-delay:1.7999999999999998s"/>
+    <circle cx="413.31" cy="260.24" r="4" fill="#F95440" stroke="#fff" stroke-width="1.5"/>
   </g>
   <g class="dot-g" onclick="openPanel('indien')">
-    <circle cx="502.56" cy="273.5" r="12" fill="#F95440" class="dp" style="animation-delay:2.1s"/>
-    <circle cx="502.56" cy="273.5" r="6" fill="#F95440" stroke="#fff" stroke-width="2"/>
-    <text x="502.56" y="264.5" text-anchor="middle" class="dlbl" fill="#1a1020">INDIEN</text>
+    <circle cx="502.56" cy="273.5" r="8" fill="#F95440" class="dp" style="animation-delay:2.1s"/>
+    <circle cx="502.56" cy="273.5" r="4" fill="#F95440" stroke="#fff" stroke-width="1.5"/>
   </g>
   <g class="dot-g" onclick="openPanel('srilanka')">
-    <circle cx="511.5" cy="299.86" r="12" fill="#F95440" class="dp" style="animation-delay:2.4s"/>
-    <circle cx="511.5" cy="299.86" r="6" fill="#F95440" stroke="#fff" stroke-width="2"/>
-    <text x="520.5" y="302.36" text-anchor="start" class="dlbl" fill="#1a1020">SRI LANKA</text>
+    <circle cx="511.5" cy="299.86" r="8" fill="#F95440" class="dp" style="animation-delay:2.4s"/>
+    <circle cx="511.5" cy="299.86" r="4" fill="#F95440" stroke="#fff" stroke-width="1.5"/>
   </g>
 </svg>
-</div>
 
-  <!-- SUPPORT -->
-  <div class="support-section">
-    <div class="support-header">
-      <div class="support-tag">💛 Our Support</div>
-      <h2>Du bist nie<br><em>allein unterwegs</em></h2>
-      <p class="support-intro">Our AIESEC members in both your home and host countries will make sure to be there every step of the way — before leaving and while you are abroad.</p>
-    </div>
-    <div class="support-grid">
-      <div class="support-card">
-        <div class="support-icon">✈️</div>
-        <div class="support-title">Logistics Support</div>
-        <div class="support-desc">We ensure you get the right visa, arrival pick-up information before you travel and departure instructions when you're going back.</div>
-      </div>
-      <div class="support-card">
-        <div class="support-icon">🌏</div>
-        <div class="support-title">Learning Experience</div>
-        <div class="support-desc">We set clear expectations, provide cultural preparation and facilitate learning spaces before, during and after your experience.</div>
-      </div>
-      <div class="support-card">
-        <div class="support-icon">🏠</div>
-        <div class="support-title">Safe Living Conditions</div>
-        <div class="support-desc">Life and health insurance is mandatory for taking part in an AIESEC program. You will get information about accommodation and basic living costs.</div>
-      </div>
-      <div class="support-card">
-        <div class="support-icon">📋</div>
-        <div class="support-title">Clear Job Description</div>
-        <div class="support-desc">We accompany you to the workplace on the first day, ensure your job description and goals are clear, and your working hours and duration is as expected.</div>
-      </div>
+    <!-- NFC CHIP CIRCLE — 25mm -->
+    <div class="nfc-circle">
+
+
     </div>
   </div>
-</main>
-
-  <!-- FAQ SECTION -->
-  <div class="faq-section">
-    <div class="faq-header">
-      <div class="faq-tag">❓ FAQ</div>
-      <h2>Häufig gestellte<br><em>Fragen</em></h2>
-    </div>
-    <div class="faq-list" id="faq-list"></div>
-  </div>
-
-<footer>
-  <p>AIESEC Bremen · <a href="https://aiesec.de/alle" target="_blank">aiesec.de</a> · Freiwilligenprojekte weltweit</p>
-</footer>
-
-<div class="panel" id="panel">
-  <div class="panel-header" id="panel-header">
-    <button class="panel-close" onclick="closePanel()">✕</button>
-    <div class="panel-flag" id="panel-flag"></div>
-    <div class="panel-country" id="panel-country"></div>
-    <div class="panel-region" id="panel-region"></div>
-  </div>
-  <div class="panel-stats" id="panel-stats"></div>
-  <div class="panel-projects" id="panel-projects"></div>
 </div>
 
 <script>
 const cities = {
-  italien: { flag:'🇮🇹', country:'Italien', region:'Südeuropa', projects:[
-    {name:'Equify – Liberamente',duration:'6 Wochen',url:'https://aiesec.de/project/equify-liberamente-italy'},
-    {name:'Global Classroom (Torino)',duration:'6 Wochen',url:'https://aiesec.de/project/global-classroom-torino-italy'},
-    {name:'Global Classroom',duration:'6 Wochen',url:'https://aiesec.de/project/global-classroom-italy'},
-    {name:'Green Leaders',duration:'6 Wochen',url:'https://aiesec.de/project/green-leaders-italy'},
-    {name:'Equify',duration:'6 Wochen',url:'https://aiesec.de/project/equify-italy'},
-    {name:'Youth 4 Impact',duration:'6 Wochen',url:'https://aiesec.de/project/youth-4-impact-italy'},
-    {name:'Fingerprint',duration:'6 Wochen',url:'https://aiesec.de/project/fingerprint-italy'},
-  ]},
-  griechenland: { flag:'🇬🇷', country:'Griechenland', region:'Südeuropa', projects:[
-    {name:'Rooted',duration:'6 Wochen',url:'https://aiesec.de/project/rooted-greece'},
-  ]},
-  spanien: { flag:'🇪🇸', country:'Spanien', region:'Westeuropa', projects:[
-    {name:'Alle Projekte in Spanien',duration:'Variiert',url:'https://aiesec.de/location/spanien'},
-  ]},
-  portugal: { flag:'🇵🇹', country:'Portugal', region:'Westeuropa', projects:[
-    {name:'Alle Projekte in Portugal',duration:'Variiert',url:'https://aiesec.de/location/portugal'},
-  ]},
-  rumanien: { flag:'🇷🇴', country:'Rumänien', region:'Osteuropa', projects:[
-    {name:'Alle Projekte in Rumänien',duration:'Variiert',url:'https://aiesec.de/location/rumaenien'},
-  ]},
-  tunesien: { flag:'🇹🇳', country:'Tunesien', region:'Nordafrika', projects:[
-    {name:'Alle Projekte in Tunesien',duration:'Variiert',url:'https://aiesec.de/location/tunesien'},
-  ]},
-  egypt: { flag:'🇪🇬', country:'Ägypten', region:'Nordafrika', projects:[
-    {name:'Alle Projekte in Ägypten',duration:'Variiert',url:'https://aiesec.de/location/egypt'},
-  ]},
-  indien: { flag:'🇮🇳', country:'Indien', region:'Südasien', projects:[
-    {name:'Alle Projekte in Indien',duration:'Variiert',url:'https://aiesec.de/location/indien'},
-  ]},
-  srilanka: { flag:'🇱🇰', country:'Sri Lanka', region:'Südasien', projects:[
-    {name:'Aquatica',duration:'6 Wochen',url:'https://aiesec.de/project/aquatica-sri-lanka'},
-  ]},
-  brasilien: { flag:'🇧🇷', country:'Brasilien', region:'Südamerika', projects:[
-    {name:'Alle Projekte in Brasilien',duration:'Variiert',url:'https://aiesec.de/location/brasilien'},
-  ]},
+  italien:{flag:'🇮🇹',country:'Italien',region:'Südeuropa',projects:[{name:'Equify – Liberamente',duration:'6 Wochen',url:'https://aiesec.de/project/equify-liberamente-italy'},{name:'Global Classroom',duration:'6 Wochen',url:'https://aiesec.de/project/global-classroom-italy'},{name:'Green Leaders',duration:'6 Wochen',url:'https://aiesec.de/project/green-leaders-italy'},{name:'Youth 4 Impact',duration:'6 Wochen',url:'https://aiesec.de/project/youth-4-impact-italy'}]},
+  griechenland:{flag:'🇬🇷',country:'Griechenland',region:'Südeuropa',projects:[{name:'Rooted',duration:'6 Wochen',url:'https://aiesec.de/project/rooted-greece'}]},
+  spanien:{flag:'🇪🇸',country:'Spanien',region:'Westeuropa',projects:[{name:'Alle Projekte',duration:'Variiert',url:'https://aiesec.de/location/spanien'}]},
+  portugal:{flag:'🇵🇹',country:'Portugal',region:'Westeuropa',projects:[{name:'Alle Projekte',duration:'Variiert',url:'https://aiesec.de/location/portugal'}]},
+  rumanien:{flag:'🇷🇴',country:'Rumänien',region:'Osteuropa',projects:[{name:'Alle Projekte',duration:'Variiert',url:'https://aiesec.de/location/rumaenien'}]},
+  tunesien:{flag:'🇹🇳',country:'Tunesien',region:'Nordafrika',projects:[{name:'German Teacher',duration:'6 Monate',url:'https://aiesec.de/project/german-teacher-tunisia'}]},
+  indien:{flag:'🇮🇳',country:'Indien',region:'Südasien',projects:[{name:'Sports Teacher',duration:'6 Monate',url:'https://aiesec.de/project/sports-teacher-india'}]},
+  srilanka:{flag:'🇱🇰',country:'Sri Lanka',region:'Südasien',projects:[{name:'Aquatica',duration:'6 Wochen',url:'https://aiesec.de/project/aquatica-sri-lanka'}]},
+  brasilien:{flag:'🇧🇷',country:'Brasilien',region:'Südamerika',projects:[{name:'Alle Projekte',duration:'Variiert',url:'https://aiesec.de/location/brasilien'}]},
 };
-
 function openPanel(key) {
   const d = cities[key]; if (!d) return;
-  document.getElementById('panel-flag').textContent = d.flag;
-  document.getElementById('panel-country').textContent = d.country;
-  document.getElementById('panel-region').textContent = d.region;
-  document.getElementById('panel-header').style.borderBottom = '3px solid #F95440';
-  document.getElementById('panel-stats').innerHTML = `<div class="stat"><div class="stat-num">${d.projects.length}</div><div class="stat-label">Freiwilligenprojekte</div></div>`;
-  document.getElementById('panel-projects').innerHTML = d.projects.map(p=>`
-    <a href="${p.url}" target="_blank" class="project-card">
-      <div class="project-card-top"><span class="project-type-badge">Freiwillig</span><span class="project-duration">${p.duration}</span></div>
-      <div class="project-name">${p.name}</div>
-      <span class="project-arrow">→</span>
-    </a>`).join('');
-  document.getElementById('panel').classList.add('open');
-}
-function closePanel() { document.getElementById('panel').classList.remove('open'); }
-document.addEventListener('keydown', e => { if(e.key==='Escape') closePanel(); });
-
-// FAQ
-const faqs = [
-  {
-    q: "Wer kann mitmachen? Gibt es Altersgrenzen?",
-    a: "Wir nehmen Bewerberinnen und Bewerber im Alter von <strong>18 bis 30 Jahren</strong> auf. Ein Studium ist für Freiwilligenprojekte nicht zwingend erforderlich."
-  },
-  {
-    q: "Was ist in der Programmgebühr enthalten?",
-    a: "<strong>Unterkunft und Verpflegung</strong> sind im Programmbeitrag enthalten — du musst dir also vor Ort keine Gedanken um Wohnen oder Essen machen. Den <strong>Flug buchst und bezahlst du selbst</strong>. Es gibt jedoch Möglichkeiten, die Reisekosten fördern zu lassen — zum Beispiel über den DAAD (siehe nächste Frage)."
-  },
-  {
-    q: "Kann ich meine Reisekosten über den DAAD erstatten lassen?",
-    a: "Wenn du mindestens im <strong>2. Fachsemester</strong> (Bachelor) oder im Master eingeschrieben bist, kannst du über AIESEC einen <strong>DAAD Fahrtkostenzuschuss</strong> für Projekte außerhalb Europas beantragen (z.B. Indien, Sri Lanka, Brasilien). Du bewirbst dich <strong>nicht direkt beim DAAD</strong> — der Antrag läuft über AIESEC. Dein persönlicher AIESEC-Ansprechpartner begleitet dich dabei. Der Zuschuss ist einmalig und variiert je nach Zielland. Weitere Infos: <a href='https://www2.daad.de/ausland/studieren/stipendium/de/70-stipendien-finden-und-bewerben/?detail=57085135' target='_blank'>daad.de →</a>"
-  }
-];
-
-const faqList = document.getElementById('faq-list');
-faqList.innerHTML = faqs.map((f, i) => `
-  <div class="faq-item" id="faq-${i}">
-    <div class="faq-q" onclick="toggleFaq(${i})">
-      <div style="display:flex;align-items:center;gap:0">
-        <span class="faq-num">${i+1}</span>
-        <span class="faq-q-text">${f.q}</span>
-      </div>
-      <div class="faq-icon">+</div>
-    </div>
-    <div class="faq-a"><p>${f.a}</p></div>
-  </div>
-`).join('');
-
-function toggleFaq(i) {
-  const item = document.getElementById('faq-' + i);
-  const wasOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
-  if (!wasOpen) item.classList.add('open');
+  window.open(d.projects[0].url, '_blank');
 }
 </script>
 </body>

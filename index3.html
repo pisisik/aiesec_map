@@ -79,11 +79,10 @@
 
   .panel {
     position: fixed; top: 50%; right: -430px; transform: translateY(-50%);
-    width: 355px; max-height: 90vh; background: #fff; color: var(--text);
+    width: 355px; background: #fff; color: var(--text);
     border-radius: 18px; overflow: hidden;
     box-shadow: 0 24px 70px rgba(0,0,0,0.18);
     transition: right 0.42s cubic-bezier(0.34, 1.56, 0.64, 1); z-index: 200;
-    display: flex; flex-direction: column;
   }
   .panel.open { right: 24px; }
   .panel-header { padding: 22px 22px 16px; position: relative; }
@@ -96,7 +95,7 @@
   .stat { text-align: center; flex: 1; }
   .stat-num { font-size: 20px; font-weight: 600; color: var(--red); }
   .stat-label { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
-  .panel-projects { padding: 14px 22px; display: flex; flex-direction: column; gap: 9px; max-height: 65vh; overflow-y: auto; }
+  .panel-projects { padding: 14px 22px; display: flex; flex-direction: column; gap: 9px; max-height: 400px; overflow-y: auto; }
   .project-card { display: block; text-decoration: none; padding: 13px 15px; border-radius: 12px; border: 1.5px solid #f0ebe8; transition: all 0.18s; position: relative; overflow: hidden; background: #fff; }
   .project-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--red); border-radius: 4px 0 0 4px; }
   .project-card:hover { border-color: var(--red); background: #fff8f7; transform: translateX(3px); }
@@ -844,12 +843,12 @@
   <g class="dot-g" onclick="openPanel('spanien')">
     <circle cx="342.7" cy="237.8" r="12" fill="#F95440" class="dp" style="animation-delay:0.3s"/>
     <circle cx="342.7" cy="237.8" r="6" fill="#F95440" stroke="#fff" stroke-width="2"/>
-    <text x="330.0" y="228.8" text-anchor="end" class="dlbl" fill="#1a1020">SPANIEN</text>
+    <text x="342.7" y="228.8" text-anchor="middle" class="dlbl" fill="#1a1020">SPANIEN</text>
   </g>
   <g class="dot-g" onclick="openPanel('portugal')">
     <circle cx="354.0" cy="232.49" r="12" fill="#F95440" class="dp" style="animation-delay:0.6s"/>
     <circle cx="354.0" cy="232.49" r="6" fill="#F95440" stroke="#fff" stroke-width="2"/>
-    <text x="330.0" y="240.0" text-anchor="end" class="dlbl" fill="#1a1020">PORTUGAL</text>
+    <text x="345.0" y="234.99" text-anchor="end" class="dlbl" fill="#1a1020">PORTUGAL</text>
   </g>
   <g class="dot-g" onclick="openPanel('tunesien')">
     <circle cx="377.88" cy="247.41" r="12" fill="#F95440" class="dp" style="animation-delay:0.8999999999999999s"/>
@@ -859,17 +858,17 @@
   <g class="dot-g" onclick="openPanel('italien')">
     <circle cx="382.49" cy="226.44" r="12" fill="#F95440" class="dp" style="animation-delay:1.2s"/>
     <circle cx="382.49" cy="226.44" r="6" fill="#F95440" stroke="#fff" stroke-width="2"/>
-    <text x="370.0" y="210.0" text-anchor="end" class="dlbl" fill="#1a1020">ITALIEN</text>
+    <text x="382.49" y="217.44" text-anchor="middle" class="dlbl" fill="#1a1020">ITALIEN</text>
   </g>
   <g class="dot-g" onclick="openPanel('rumanien')">
     <circle cx="406.88" cy="226.74" r="12" fill="#F95440" class="dp" style="animation-delay:1.5s"/>
     <circle cx="406.88" cy="226.74" r="6" fill="#F95440" stroke="#fff" stroke-width="2"/>
-    <text x="406.88" y="210.0" text-anchor="middle" class="dlbl" fill="#1a1020">RUMÄNIEN</text>
+    <text x="406.88" y="217.74" text-anchor="middle" class="dlbl" fill="#1a1020">RUMÄNIEN</text>
   </g>
   <g class="dot-g" onclick="openPanel('griechenland')">
     <circle cx="413.31" cy="260.24" r="12" fill="#F95440" class="dp" style="animation-delay:1.7999999999999998s"/>
     <circle cx="413.31" cy="260.24" r="6" fill="#F95440" stroke="#fff" stroke-width="2"/>
-    <text x="422.31" y="258.0" text-anchor="start" class="dlbl" fill="#1a1020">GRIECHENLAND</text>
+    <text x="422.31" y="262.74" text-anchor="start" class="dlbl" fill="#1a1020">GRIECHENLAND</text>
   </g>
   <g class="dot-g" onclick="openPanel('indien')">
     <circle cx="502.56" cy="273.5" r="12" fill="#F95440" class="dp" style="animation-delay:2.1s"/>
@@ -1010,7 +1009,7 @@ const faqs = [
   },
   {
     q: "Kann ich meine Reisekosten über den DAAD erstatten lassen?",
-    a: "Wenn du mindestens im <strong>2. Fachsemester</strong> (Bachelor) oder im Master eingeschrieben bist, kannst du über AIESEC einen <strong>DAAD Fahrtkostenzuschuss</strong> für Projekte außerhalb Europas beantragen (z.B. Indien, Sri Lanka, Brasilien). Du bewirbst dich <strong>nicht direkt beim DAAD</strong> — der Antrag läuft über AIESEC. Dein persönlicher AIESEC-Ansprechpartner begleitet dich dabei. Der Zuschuss ist einmalig und variiert je nach Zielland. Weitere Infos: <a href='https://www2.daad.de/ausland/studieren/stipendium/de/70-stipendien-finden-und-bewerben/?detail=57085135' target='_blank'>daad.de →</a>"
+    a: "Wenn du mindestens im <strong>2. Fachsemester</strong> eines Bachelor-Studiengangs oder in einem Master-Studiengang immatrikuliert bist, kannst du beim DAAD einen <strong>Fahrtkostenzuschuss</strong> für dein AIESEC-Projekt außerhalb Europas beantragen (z.B. Indien, Sri Lanka, Brasilien). Der Antrag läuft direkt über AIESEC — dein persönlicher Ansprechpartner hilft dir dabei! Der Zuschuss variiert je nach Zielland. Weitere Infos: <a href='https://www2.daad.de/ausland/studieren/stipendium/de/70-stipendien-finden-und-bewerben/?detail=57085135' target='_blank'>daad.de →</a>"
   }
 ];
 
