@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AIESEC Bremen — Card Back</title>
+<title>AIESEC Bremen — Postcard Back (A6)</title>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -14,24 +14,25 @@
     font-family: 'Raleway', sans-serif;
   }
 
+  /* 148mm x 105mm — A6 postcard, scaled from original 85x55mm by 1.741x, sharp corners */
   .card {
-    width: 85mm;
-    height: 55mm;
+    width: 148mm;
+    height: 105mm;
     background: #FFF5F2;
-    border-radius: 3mm;
+    border-radius: 0;
     box-shadow: 0 8px 32px rgba(0,0,0,0.25);
     overflow: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 3mm 3.5mm 3mm;
+    padding: 5.2mm 6.1mm 5.2mm;
   }
 
   /* Color bar */
   .color-bar {
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 1.5mm;
+    height: 2.6mm;
     display: flex;
   }
   .color-bar span { flex: 1; }
@@ -39,28 +40,28 @@
   /* HEADER */
   .header {
     text-align: center;
-    margin-bottom: 3mm;
-    margin-top: 1.5mm;
+    margin-bottom: 5.2mm;
+    margin-top: 2.6mm;
   }
   .header-tag {
     display: inline-flex;
     align-items: center;
-    gap: 1mm;
-    font-size: 1.8mm;
+    gap: 1.7mm;
+    font-size: 3.1mm;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: #0037E3;
-    border: 0.3mm solid rgba(0,55,227,0.2);
+    border: 0.5mm solid rgba(0,55,227,0.2);
     background: rgba(0,55,227,0.05);
-    padding: 0.8mm 2.5mm;
-    border-radius: 10mm;
-    margin-bottom: 2mm;
+    padding: 1.4mm 4.4mm;
+    border-radius: 17mm;
+    margin-bottom: 3.5mm;
   }
   .header h2 {
     font-family: 'Lato', sans-serif;
     font-weight: 900;
-    font-size: 5mm;
+    font-size: 8.7mm;
     color: #1a1020;
     line-height: 1.1;
   }
@@ -70,33 +71,37 @@
     color: #0037E3;
   }
 
-  /* SUPPORT LIST */
+  /* SUPPORT LIST — centered both horizontally and vertically */
   .support-list {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 2mm;
+    justify-content: center;
+    align-items: center;
+    gap: 3.5mm;
   }
 
   .support-item {
     display: flex;
     align-items: flex-start;
-    gap: 2mm;
+    gap: 3.5mm;
+    width: 100%;
+    max-width: 105mm;
   }
   .support-icon {
-    font-size: 3.5mm;
+    font-size: 6.1mm;
     line-height: 1;
     flex-shrink: 0;
-    margin-top: 0.2mm;
+    margin-top: 0.4mm;
   }
   .support-content {}
   .support-title {
     font-family: 'Lato', sans-serif;
-    font-size: 2.2mm;
+    font-size: 3.8mm;
     font-weight: 700;
     color: #1a1020;
     line-height: 1;
-    margin-bottom: 0.5mm;
+    margin-bottom: 0.9mm;
   }
 
   /* FOOTER */
@@ -104,13 +109,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 2.5mm;
-    padding-top: 2mm;
-    border-top: 0.3mm solid rgba(0,0,0,0.08);
+    margin-top: 4.4mm;
+    padding-top: 3.5mm;
+    border-top: 0.5mm solid rgba(0,0,0,0.08);
   }
   .footer-brand {
     font-family: 'Lato', sans-serif;
-    font-size: 2.5mm;
+    font-size: 4.4mm;
     font-weight: 900;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -118,7 +123,7 @@
   }
   .footer-brand span { color: #0037E3; }
   .footer-link {
-    font-size: 1.8mm;
+    font-size: 3.1mm;
     color: #bbb;
     letter-spacing: 0.05em;
   }

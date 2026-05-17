@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AIESEC Bremen — Card Front</title>
+<title>AIESEC Bremen — Postcard Front (A6)</title>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -14,12 +14,12 @@
     font-family: 'Raleway', sans-serif;
   }
 
-  /* 85mm x 55mm — using mm units for correct print size */
+  /* 148mm x 105mm — A6 postcard, scaled from original 85x55mm by 1.741x, sharp corners */
   .card {
-    width: 85mm;
-    height: 55mm;
+    width: 148mm;
+    height: 105mm;
     background: #FFF5F2;
-    border-radius: 3mm;
+    border-radius: 0;
     box-shadow: 0 8px 32px rgba(0,0,0,0.25);
     overflow: hidden;
     position: relative;
@@ -31,8 +31,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2.5mm 3mm 2mm;
-    border-bottom: 0.3mm solid rgba(0,0,0,0.08);
+    padding: 4.4mm 5.2mm 3.5mm;
+    border-bottom: 0.5mm solid rgba(0,0,0,0.08);
     flex-shrink: 0;
     background: #FFF5F2;
     z-index: 2;
@@ -41,7 +41,7 @@
   .brand-name {
     font-family: 'Lato', sans-serif;
     font-weight: 900;
-    font-size: 4mm;
+    font-size: 7mm;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #1a1020;
@@ -49,25 +49,25 @@
   }
   .brand-name span { color: #0037E3; }
   .brand-tagline {
-    font-size: 1.8mm;
+    font-size: 3.1mm;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #9a8a85;
-    margin-top: 0.8mm;
+    margin-top: 1.4mm;
   }
 
   .nfc-badge {
     display: flex;
     align-items: center;
-    gap: 1.5mm;
+    gap: 2.6mm;
     background: rgba(0,55,227,0.06);
-    border: 0.3mm solid rgba(0,55,227,0.2);
-    border-radius: 10mm;
-    padding: 1.2mm 2.5mm 1.2mm 1.8mm;
+    border: 0.5mm solid rgba(0,55,227,0.2);
+    border-radius: 17mm;
+    padding: 2.1mm 4.4mm 2.1mm 3.1mm;
   }
   .nfc-text {
-    font-size: 1.8mm;
+    font-size: 3.1mm;
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -99,7 +99,7 @@
     
     </div>
     <div class="nfc-badge">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:5mm;height:5mm;flex-shrink:0;">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:8.7mm;height:8.7mm;flex-shrink:0;">
         <path d="M20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4" stroke="#0037E3" stroke-width="1.8" stroke-linecap="round"/>
         <path d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8" stroke="#0037E3" stroke-width="1.8" stroke-linecap="round"/>
         <circle cx="12" cy="12" r="2" fill="#0037E3"/>
